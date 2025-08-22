@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - SKYLINE Innovation Software</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,14 +13,14 @@
             box-sizing: border-box;
         }
 
-                 body {
-             font-family: 'Inter', sans-serif;
-             line-height: 1.6;
-             color: #fff;
-             overflow-x: hidden;
-             position: relative;
-             background: #000;
-         }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            background: #000;
+        }
 
         /* Creative Background Elements */
         .floating-shapes {
@@ -35,15 +35,15 @@
 
         .shape {
             position: absolute;
-            opacity: 0.1;
+            opacity: 0.05;
             animation: float 20s infinite linear;
         }
 
         .shape:nth-child(1) {
             top: 20%;
             left: 10%;
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             background: linear-gradient(45deg, #C41E3A, #DC143C);
             border-radius: 50%;
             animation-duration: 25s;
@@ -53,8 +53,8 @@
         .shape:nth-child(2) {
             top: 60%;
             right: 15%;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(45deg, #000, #333);
             transform: rotate(45deg);
             animation-duration: 30s;
@@ -64,8 +64,8 @@
         .shape:nth-child(3) {
             top: 40%;
             left: 80%;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(45deg, #C41E3A, #000);
             border-radius: 30%;
             animation-duration: 35s;
@@ -383,124 +383,228 @@
             padding: 0 2rem;
         }
 
-                 /* About Section */
-         .about-section {
-             padding: 80px 0;
-             background: #000;
-         }
+        /* About Section - New Modern Design */
+        .about-section {
+            padding: 100px 0;
+            background: #000;
+            position: relative;
+        }
 
-         .about-subsection {
-             margin-bottom: 4rem;
-             padding: 2rem;
-             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-             backdrop-filter: blur(20px);
-             border: 1px solid rgba(255, 255, 255, 0.3);
-             border-radius: 25px;
-             box-shadow: 
-                 0 10px 40px rgba(0, 0, 0, 0.08),
-                 0 0 0 1px rgba(255, 255, 255, 0.1),
-                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
-             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-             position: relative;
-             overflow: hidden;
-         }
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
-         .about-subsection::before {
-             content: '';
-             position: absolute;
-             top: 0;
-             left: -100%;
-             width: 100%;
-             height: 100%;
-             background: linear-gradient(90deg, 
-                 transparent, 
-                 rgba(196, 30, 58, 0.05), 
-                 transparent);
-             transition: left 0.6s ease;
-             z-index: 1;
-         }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
 
-         .about-subsection:hover {
-             transform: translateY(-5px);
-             box-shadow: 
-                 0 20px 60px rgba(0, 0, 0, 0.12),
-                 0 0 30px rgba(196, 30, 58, 0.1);
-         }
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #C41E3A, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
 
-         .about-subsection:hover::before {
-             left: 100%;
-         }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #C41E3A, #DC143C);
+            border-radius: 2px;
+        }
 
-         .subsection-title {
-             font-size: 2rem;
-             font-weight: 700;
-             margin-bottom: 1.5rem;
-             color: #C41E3A;
-             position: relative;
-             z-index: 2;
-         }
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-         .about-subsection p {
-             font-size: 1.1rem;
-             color: #e0e0e0;
-             margin-bottom: 1.5rem;
-             line-height: 1.8;
-             position: relative;
-             z-index: 2;
-         }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
 
-         .mission-list {
-             list-style: none;
-             padding: 0;
-             position: relative;
-             z-index: 2;
-         }
+        .about-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
 
-         .mission-list li {
-             display: flex;
-             align-items: flex-start;
-             margin-bottom: 1rem;
-             padding: 0.5rem 0;
-             font-size: 1.1rem;
-             color: #e0e0e0;
-             line-height: 1.6;
-         }
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(196, 30, 58, 0.1), 
+                transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
 
-         .mission-list li i {
-             color: #C41E3A;
-             margin-right: 1rem;
-             margin-top: 0.2rem;
-             font-size: 1rem;
-             font-weight: bold;
-         }
+        .about-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(196, 30, 58, 0.2);
+            border-color: rgba(196, 30, 58, 0.3);
+        }
 
-                 /* Stats Section */
-         .stats-section {
-             padding: 80px 0;
-             background: #111;
-         }
+        .about-card:hover::before {
+            left: 100%;
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #C41E3A, #DC143C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .about-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.5);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, #fff, #C41E3A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .mission-list li i {
+            color: #C41E3A;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 0;
+            background: #111;
+            position: relative;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(196, 30, 58, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
+            position: relative;
+            z-index: 2;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 3rem 2rem;
             border-radius: 25px;
             text-align: center;
-            box-shadow: 
-                0 10px 40px rgba(0, 0, 0, 0.08),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .stat-card::before {
@@ -521,8 +625,9 @@
         .stat-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 
-                0 25px 60px rgba(0, 0, 0, 0.15),
-                0 0 30px rgba(196, 30, 58, 0.2);
+                0 30px 80px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(196, 30, 58, 0.2);
+            border-color: rgba(196, 30, 58, 0.3);
         }
 
         .stat-card:hover::before {
@@ -530,249 +635,31 @@
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: #C41E3A;
             display: block;
             margin-bottom: 1rem;
             position: relative;
             z-index: 2;
+            text-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
         }
 
-                 .stat-label {
-             color: #e0e0e0;
-             font-weight: 600;
-             font-size: 1.1rem;
-             position: relative;
-             z-index: 2;
-         }
-
-                 /* Team Section */
-         .team-section {
-             padding: 80px 0;
-             background: #000;
-         }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #C41E3A, #DC143C);
-            border-radius: 2px;
-        }
-
-                 .section-description {
-             text-align: center;
-             font-size: 1.2rem;
-             color: #e0e0e0;
-             margin-bottom: 4rem;
-             max-width: 800px;
-             margin-left: auto;
-             margin-right: auto;
-             line-height: 1.8;
-         }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .team-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 2.5rem;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 
-                0 10px 40px rgba(0, 0, 0, 0.08),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(196, 30, 58, 0.1), 
-                transparent);
-            transition: left 0.6s ease;
-            z-index: 1;
-        }
-
-        .team-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 
-                0 25px 60px rgba(0, 0, 0, 0.15),
-                0 0 30px rgba(196, 30, 58, 0.2);
-        }
-
-        .team-card:hover::before {
-            left: 100%;
-        }
-
-        .team-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #C41E3A, #DC143C);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            z-index: 2;
-            transition: all 0.4s ease;
-        }
-
-        .team-card:hover .team-avatar {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
-        }
-
-                 .team-name {
-             font-size: 1.5rem;
-             font-weight: 700;
-             color: #fff;
-             margin-bottom: 0.5rem;
-             position: relative;
-             z-index: 2;
-         }
-
-        .team-role {
-            color: #C41E3A;
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
             position: relative;
             z-index: 2;
         }
-
-                 .team-description {
-             color: #e0e0e0;
-             line-height: 1.6;
-             position: relative;
-             z-index: 2;
-         }
-
-                 /* Values Section */
-         .values-section {
-             padding: 80px 0;
-             background: #111;
-         }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 2.5rem;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 
-                0 10px 40px rgba(0, 0, 0, 0.08),
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(196, 30, 58, 0.1), 
-                transparent);
-            transition: left 0.6s ease;
-            z-index: 1;
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 
-                0 25px 60px rgba(0, 0, 0, 0.15),
-                0 0 30px rgba(196, 30, 58, 0.2);
-        }
-
-        .value-card:hover::before {
-            left: 100%;
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            color: #C41E3A;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-            transition: all 0.4s ease;
-        }
-
-        .value-card:hover .value-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-
-                 .value-title {
-             font-size: 1.5rem;
-             font-weight: 700;
-             color: #fff;
-             margin-bottom: 1rem;
-             position: relative;
-             z-index: 2;
-         }
-
-         .value-description {
-             color: #e0e0e0;
-             line-height: 1.6;
-             position: relative;
-             z-index: 2;
-         }
 
         /* Footer */
         .footer {
-            background: #333;
+            background: #000;
             color: white;
             padding: 40px 0 20px;
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
@@ -806,15 +693,21 @@
                 font-size: 2.5rem;
             }
 
-            .about-content {
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .stats-grid,
-            .team-grid,
-            .values-grid {
+            .stats-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 2rem 1.5rem;
             }
         }
 
@@ -869,40 +762,86 @@
         </div>
     </section>
 
-         <!-- About Section -->
-     <section class="about-section">
-         <div class="container">
-             <h2 class="section-title">About Us</h2>
-             
-             <!-- Who We Are -->
-             <div class="about-subsection">
-                 <h3 class="subsection-title">Who We Are</h3>
-                 <p>Skyline Innovation is a leading provider of Enterprise Resource Planning (ERP) and software solutions in Jordan, dedicated to empowering businesses through cutting-edge technology and digital transformation. With a commitment to excellence, innovation, and customer satisfaction, we deliver tailored software solutions that streamline operations, enhance decision-making, and drive sustainable growth.</p>
-                 <p>Our expertise spans across multiple industries, enabling organizations to automate workflows, integrate systems, and optimize business processes with efficiency and accuracy.</p>
-             </div>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Us</h2>
+                <p class="section-subtitle">Empowering businesses through innovative technology solutions and digital transformation</p>
+            </div>
+            
+            <div class="about-grid">
+                <!-- Who We Are -->
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="card-title">Who We Are</h3>
+                    <div class="card-content">
+                        <p>Skyline Innovation is a leading provider of Enterprise Resource Planning (ERP) and software solutions in Jordan, dedicated to empowering businesses through cutting-edge technology and digital transformation. With a commitment to excellence, innovation, and customer satisfaction, we deliver tailored software solutions that streamline operations, enhance decision-making, and drive sustainable growth.</p>
+                        <p>Our expertise spans across multiple industries, enabling organizations to automate workflows, integrate systems, and optimize business processes with efficiency and accuracy.</p>
+                    </div>
+                </div>
 
-             <!-- Our Vision -->
-             <div class="about-subsection">
-                 <h3 class="subsection-title">Our Vision</h3>
-                 <p>To be the local trusted technology partner driving digital transformation for businesses across Jordan and the Middle East, enabling them to thrive in a competitive and rapidly evolving digital landscape.</p>
-             </div>
+                <!-- Our Vision -->
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="card-title">Our Vision</h3>
+                    <div class="card-content">
+                        <p>To be the local trusted technology partner driving digital transformation for businesses across Jordan and the Middle East, enabling them to thrive in a competitive and rapidly evolving digital landscape.</p>
+                    </div>
+                </div>
 
-             <!-- Our Mission -->
-             <div class="about-subsection">
-                 <h3 class="subsection-title">Our Mission</h3>
-                 <p>At Skyline Innovation, our mission is to deliver scalable, intelligent, and fully customized ERP and software solutions that enhance business performance. We aim to:</p>
-                 <ul class="mission-list">
-                     <li><i class="fas fa-check"></i> Empower businesses with innovative, user-friendly, and data-driven solutions.</li>
-                     <li><i class="fas fa-check"></i> Optimize operations through seamless automation and process efficiency.</li>
-                     <li><i class="fas fa-check"></i> Enhance decision-making with real-time insights and advanced analytics.</li>
-                     <li><i class="fas fa-check"></i> Ensure security and compliance through state-of-the-art security protocols.</li>
-                     <li><i class="fas fa-check"></i> Provide continuous support to help businesses adapt and grow with technology.</li>
-                 </ul>
-             </div>
-         </div>
-     </section>
+                <!-- Our Mission -->
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="card-title">Our Mission</h3>
+                    <div class="card-content">
+                        <p>At Skyline Innovation, our mission is to deliver scalable, intelligent, and fully customized ERP and software solutions that enhance business performance. We aim to:</p>
+                        <ul class="mission-list">
+                            <li><i class="fas fa-check"></i> Empower businesses with innovative, user-friendly, and data-driven solutions.</li>
+                            <li><i class="fas fa-check"></i> Optimize operations through seamless automation and process efficiency.</li>
+                            <li><i class="fas fa-check"></i> Enhance decision-making with real-time insights and advanced analytics.</li>
+                            <li><i class="fas fa-check"></i> Ensure security and compliance through state-of-the-art security protocols.</li>
+                            <li><i class="fas fa-check"></i> Provide continuous support to help businesses adapt and grow with technology.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Achievements</h2>
+                <p class="section-subtitle">Numbers that reflect our commitment to excellence and innovation</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Technology Partners</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support Available</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -961,7 +900,7 @@
         }, observerOptions);
 
         // Observe all cards
-        document.querySelectorAll('.stat-card, .team-card, .value-card').forEach(el => {
+        document.querySelectorAll('.about-card, .stat-card').forEach(el => {
             observer.observe(el);
         });
 
