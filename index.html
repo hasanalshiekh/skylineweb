@@ -197,9 +197,19 @@
         }
 
         .logo-yline {
-            color: #000;
+            color: #fff;
             font-weight: 700;
             font-size: 2.2rem;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 15px rgba(255, 255, 255, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        /* Logo state when scrolled */
+        .header.scrolled .logo-yline {
+            color: #000;
             text-shadow: 
                 0 0 10px rgba(0, 0, 0, 0.3),
                 0 0 15px rgba(0, 0, 0, 0.2),
@@ -1020,9 +1030,11 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
+                header.classList.add('scrolled');
                 header.style.background = 'linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(139, 0, 0, 0.95) 100%)';
                 header.style.boxShadow = '0 8px 32px rgba(139, 0, 0, 0.4), 0 0 30px rgba(139, 0, 0, 0.3)';
             } else {
+                header.classList.remove('scrolled');
                 header.style.background = 'linear-gradient(135deg, #8B0000 0%, #000 50%, #8B0000 100%)';
                 header.style.boxShadow = '0 8px 32px rgba(139, 0, 0, 0.3), 0 0 20px rgba(139, 0, 0, 0.2)';
             }
