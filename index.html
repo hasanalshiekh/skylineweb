@@ -491,21 +491,7 @@
             font-size: 1.2rem;
         }
 
-        /* Slide Counter */
-        .slide-counter {
-            position: absolute;
-            top: 50%;
-            right: 30px;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
+        
 
         .hero::before {
             content: '';
@@ -1085,10 +1071,7 @@
                 <i class="fas fa-chevron-right"></i>
             </div>
             
-            <!-- Slide Counter -->
-            <div class="slide-counter">
-                <span id="currentSlide">1</span> / <span id="totalSlides">4</span>
-            </div>
+            
         </div>
     </section>
 
@@ -1357,9 +1340,8 @@
         const dots = document.querySelectorAll('.slider-dot');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const slider = document.getElementById('slider');
-        const currentSlideElement = document.getElementById('currentSlide');
-        const totalSlides = slides.length;
+                 const slider = document.getElementById('slider');
+         const totalSlides = slides.length;
 
         function updateSlider() {
             // Update slider position
@@ -1370,8 +1352,7 @@
                 dot.classList.toggle('active', index === currentSlide);
             });
             
-            // Update counter
-            currentSlideElement.textContent = currentSlide + 1;
+            
             
             // Reset animations for current slide
             const currentSlideContent = slides[currentSlide].querySelector('.slide-content');
