@@ -783,12 +783,31 @@
             gap: 0.5rem;
             font-size: 1.5rem;
             font-weight: 700;
-            color: white;
+            text-decoration: none;
+            position: relative;
+            z-index: 3;
         }
 
-        .footer-logo i {
+        .footer-logo .logo-sky {
             color: #C41E3A;
-            font-size: 1.2rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-shadow: 
+                0 0 10px rgba(196, 30, 58, 0.5),
+                0 0 20px rgba(196, 30, 58, 0.3),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+
+        .footer-logo .logo-yline {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 15px rgba(255, 255, 255, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
         }
 
         .footer-nav {
@@ -1068,8 +1087,7 @@
             <!-- Bottom Section -->
             <div class="footer-bottom">
                 <div class="footer-logo">
-                    <i class="fas fa-star"></i>
-                    <span>SKYLINE</span>
+                    <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
                 </div>
                 
                 <div class="footer-nav">
