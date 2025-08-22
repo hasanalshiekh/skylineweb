@@ -302,17 +302,209 @@
             transform: translateY(0);
         }
 
-        /* Hero Section */
+        /* Hero Section with Slider */
         .hero {
             background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
             color: white;
-            padding: 120px 0 80px;
+            padding: 0;
             text-align: center;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
             display: flex;
             align-items: center;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .slide h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShine 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 1s ease-out 0.5s forwards;
+        }
+
+        .slide p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 1s ease-out 0.8s forwards;
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide 1 - AI & Machine Learning */
+        .slide-1 {
+            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        /* Slide 2 - Coding & Development */
+        .slide-2 {
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        /* Slide 3 - Cybersecurity */
+        .slide-3 {
+            background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        }
+
+        /* Slide 4 - Cloud Computing */
+        .slide-4 {
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .slider-dot.active {
+            background: #fff;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .slider-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        /* Slider Arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.prev {
+            left: 30px;
+        }
+
+        .slider-arrow.next {
+            right: 30px;
+        }
+
+        .slider-arrow i {
+            font-size: 1.2rem;
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
         .hero::before {
@@ -836,12 +1028,67 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Slider -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Building Your Digital Foundation</h1>
-            <p>We transform businesses through cutting-edge IT solutions, artificial intelligence, and world-class technology partnerships. From concept to profitability, we guide your digital journey.</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <!-- Slide 1 - AI & Machine Learning -->
+                <div class="slide slide-1">
+                    <div class="slide-content">
+                        <h1>AI & Machine Learning Solutions</h1>
+                        <p>Transform your data into actionable insights with our advanced AI solutions and predictive analytics that drive business growth.</p>
+                        <a href="#contact" class="cta-button">Discover AI Solutions</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 - Software Development -->
+                <div class="slide slide-2">
+                    <div class="slide-content">
+                        <h1>Custom Software Development</h1>
+                        <p>Build scalable, innovative applications with our expert development team using cutting-edge technologies and best practices.</p>
+                        <a href="#contact" class="cta-button">Start Your Project</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 - Cybersecurity -->
+                <div class="slide slide-3">
+                    <div class="slide-content">
+                        <h1>Advanced Cybersecurity</h1>
+                        <p>Protect your business with our comprehensive security solutions using "never trust, always verify" approach.</p>
+                        <a href="#contact" class="cta-button">Secure Your Business</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 - Cloud Computing -->
+                <div class="slide slide-4">
+                    <div class="slide-content">
+                        <h1>Cloud Infrastructure & Solutions</h1>
+                        <p>Connect, secure, and scale your operations with our cloud infrastructure solutions for unlimited growth.</p>
+                        <a href="#contact" class="cta-button">Go Cloud Native</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slider Navigation -->
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+                <div class="slider-dot" data-slide="3"></div>
+            </div>
+            
+            <!-- Slider Arrows -->
+            <div class="slider-arrow prev" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slider-arrow next" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            
+            <!-- Slide Counter -->
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">4</span>
+            </div>
         </div>
     </section>
 
@@ -1103,6 +1350,119 @@
             }
         `;
         document.head.appendChild(particleStyle);
+
+        // Slider Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slider = document.getElementById('slider');
+        const currentSlideElement = document.getElementById('currentSlide');
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            // Update slider position
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update counter
+            currentSlideElement.textContent = currentSlide + 1;
+            
+            // Reset animations for current slide
+            const currentSlideContent = slides[currentSlide].querySelector('.slide-content');
+            const h1 = currentSlideContent.querySelector('h1');
+            const p = currentSlideContent.querySelector('p');
+            const button = currentSlideContent.querySelector('.cta-button');
+            
+            // Reset animations
+            h1.style.animation = 'none';
+            p.style.animation = 'none';
+            button.style.animation = 'none';
+            
+            // Trigger reflow
+            void h1.offsetWidth;
+            void p.offsetWidth;
+            void button.offsetWidth;
+            
+            // Restart animations
+            h1.style.animation = 'slideInUp 1s ease-out 0.5s forwards';
+            p.style.animation = 'slideInUp 1s ease-out 0.8s forwards';
+            button.style.animation = 'slideInUp 1s ease-out 1.1s forwards';
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Auto-play slider
+        let autoPlayInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto-play on hover
+        const sliderContainer = document.querySelector('.slider-container');
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        sliderContainer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > 50) { // Minimum swipe distance
+                if (diff > 0) {
+                    nextSlide(); // Swipe left
+                } else {
+                    prevSlide(); // Swipe right
+                }
+            }
+        });
+
+        // Initialize slider
+        updateSlider();
     </script>
 </body>
 </html>
