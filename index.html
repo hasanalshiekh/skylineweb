@@ -630,13 +630,24 @@
             padding: 0 2rem;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: #333;
-        }
+                 .section-title {
+             text-align: center;
+             font-size: 2.5rem;
+             font-weight: 700;
+             margin-bottom: 1rem;
+             color: #333;
+         }
+
+         .section-description {
+             text-align: center;
+             font-size: 1.1rem;
+             color: #666;
+             margin-bottom: 3rem;
+             max-width: 800px;
+             margin-left: auto;
+             margin-right: auto;
+             line-height: 1.6;
+         }
 
         .services-grid {
             display: grid;
@@ -698,6 +709,29 @@
              position: relative;
          }
 
+         .feature-icon {
+             position: absolute;
+             top: 20px;
+             left: 20px;
+             width: 30px;
+             height: 30px;
+             background: #C41E3A;
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             color: white;
+             font-size: 0.9rem;
+             font-weight: bold;
+             box-shadow: 0 2px 8px rgba(196, 30, 58, 0.3);
+             transition: all 0.3s ease;
+         }
+
+         .service-card:hover .feature-icon {
+             transform: scale(1.1);
+             box-shadow: 0 4px 12px rgba(196, 30, 58, 0.4);
+         }
+
                  .service-icon::before {
              content: '';
              position: absolute;
@@ -716,17 +750,20 @@
             transform: translate(-50%, -50%) scale(1);
         }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #333;
-        }
+                 .service-card h3 {
+             font-size: 1.5rem;
+             font-weight: 600;
+             margin-bottom: 1rem;
+             color: #333;
+             margin-top: 1rem;
+             padding-left: 40px;
+         }
 
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-        }
+                 .service-card p {
+             color: #666;
+             line-height: 1.6;
+             padding-left: 40px;
+         }
 
         /* About Section */
         .about {
@@ -1004,13 +1041,13 @@
                 <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
                 <span class="logo-tagline">Innovation Software</span>
             </a>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+                         <ul class="nav-menu">
+                 <li><a href="#home">Home</a></li>
+                 <li><a href="#services">Why Choose Us</a></li>
+                 <li><a href="#about">About</a></li>
+                 <li><a href="#industries">Industries</a></li>
+                 <li><a href="#contact">Contact</a></li>
+             </ul>
         </nav>
     </header>
 
@@ -1075,44 +1112,57 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card fade-in-up">
-                    <i class="fas fa-brain service-icon"></i>
-                    <h3>AI & Data Analytics</h3>
-                    <p>Transform your data into actionable insights with our advanced AI solutions and predictive analytics.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <i class="fas fa-shield-alt service-icon"></i>
-                    <h3>Cybersecurity</h3>
-                    <p>Comprehensive security solutions to protect your business with "never trust, always verify" approach.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <i class="fas fa-cloud service-icon"></i>
-                    <h3>Cloud Computing</h3>
-                    <p>Connect, secure, and scale your operations with our cloud infrastructure solutions.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <i class="fas fa-cogs service-icon"></i>
-                    <h3>IT Management</h3>
-                    <p>Predictive IT service management that takes the guesswork out of enterprise operations.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <i class="fas fa-mobile-alt service-icon"></i>
-                    <h3>Digital Applications</h3>
-                    <p>Data-driven applications for modern businesses and customer-centric experiences.</p>
-                </div>
-                <div class="service-card fade-in-up">
-                    <i class="fas fa-network-wired service-icon"></i>
-                    <h3>Infrastructure</h3>
-                    <p>Critical infrastructure solutions that form the foundation of your digital transformation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+         <!-- Why Choose Us Section -->
+     <section id="services" class="services">
+         <div class="container">
+             <h2 class="section-title">Why Choose Skyline Innovation؟</h2>
+             <p class="section-description">At Skyline Innovation, we understand that every business is unique. That's why we focus on tailored solutions, expert support, and future-ready technology. Here's what sets us apart:</p>
+             <div class="services-grid">
+                 <div class="service-card fade-in-up">
+                     <div class="feature-icon">
+                         <i class="fas fa-check"></i>
+                     </div>
+                     <h3>Industry Expertise</h3>
+                     <p>A team of experienced developers, consultants, and ERP specialists with deep market knowledge.</p>
+                 </div>
+                 <div class="service-card fade-in-up">
+                     <div class="feature-icon">
+                         <i class="fas fa-check"></i>
+                     </div>
+                     <h3>Customized Solutions</h3>
+                     <p>Flexible and scalable ERP systems tailored to specific business needs.</p>
+                 </div>
+                 <div class="service-card fade-in-up">
+                     <div class="feature-icon">
+                         <i class="fas fa-check"></i>
+                     </div>
+                     <h3>Cutting-Edge Technology</h3>
+                     <p>Utilization of AI, cloud computing, and advanced analytics for superior performance.</p>
+                 </div>
+                 <div class="service-card fade-in-up">
+                     <div class="feature-icon">
+                         <i class="fas fa-check"></i>
+                     </div>
+                     <h3>User-Friendly Interface</h3>
+                     <p>Simplified, intuitive software designed for maximum efficiency.</p>
+                 </div>
+                 <div class="service-card fade-in-up">
+                     <div class="feature-icon">
+                         <i class="fas fa-check"></i>
+                     </div>
+                     <h3>Strong Security Measures</h3>
+                     <p>Implementation of high-end encryption and compliance with industry standards.</p>
+                 </div>
+                 <div class="service-card fade-in-up">
+                     <div class="feature-icon">
+                         <i class="fas fa-check"></i>
+                     </div>
+                     <h3>Ongoing Support & Training</h3>
+                     <p>Dedicated technical support and training to ensure smooth implementation and system optimization.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
