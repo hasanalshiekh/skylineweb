@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyline IT Solutions - Building Digital Futures</title>
+    <title>SKYLINE Innovation Software - Building Digital Futures</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -22,14 +22,14 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
+            color: #333;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -42,10 +42,34 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: white;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-sky {
+            color: #8B0000;
+            font-weight: 800;
+            font-size: 2.2rem;
+        }
+
+        .logo-yline {
+            color: #000;
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+
+        .logo-tagline {
+            font-size: 0.6rem;
+            color: #666;
+            font-weight: 400;
+            margin-left: 0.5rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            line-height: 1.2;
         }
 
         .nav-menu {
@@ -55,19 +79,19 @@
         }
 
         .nav-menu a {
-            color: white;
+            color: #333;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-menu a:hover {
-            color: #f0f0f0;
+            color: #8B0000;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
             color: white;
             padding: 120px 0 80px;
             text-align: center;
@@ -112,19 +136,20 @@
 
         .cta-button {
             display: inline-block;
-            background: #ff6b6b;
+            background: #000;
             color: white;
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            background: #333;
         }
 
         /* Services Section */
@@ -170,7 +195,7 @@
 
         .service-icon {
             font-size: 3rem;
-            color: #667eea;
+            color: #8B0000;
             margin-bottom: 1rem;
         }
 
@@ -227,7 +252,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #667eea;
+            color: #8B0000;
             display: block;
         }
 
@@ -264,14 +289,14 @@
 
         .industry-icon {
             font-size: 2.5rem;
-            color: #667eea;
+            color: #8B0000;
             margin-bottom: 1rem;
         }
 
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
             color: white;
         }
 
@@ -327,7 +352,7 @@
         }
 
         .submit-btn {
-            background: #ff6b6b;
+            background: #000;
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -339,7 +364,7 @@
         }
 
         .submit-btn:hover {
-            background: #ff5252;
+            background: #333;
         }
 
         /* Footer */
@@ -368,7 +393,7 @@
         }
 
         .social-links a:hover {
-            color: #667eea;
+            color: #8B0000;
         }
 
         /* Responsive Design */
@@ -417,7 +442,10 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo">Skyline IT</a>
+            <a href="#" class="logo">
+                <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
+                <span class="logo-tagline">Innovation Software</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -482,7 +510,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Who We Are</h2>
-                    <p>At Skyline IT Solutions, we assist large enterprises and public sector organizations in realizing the full potential of their businesses. By utilizing cutting-edge IT systems and world-class technology partners, we guide our clients from concept to profitability and goal attainment.</p>
+                    <p>At SKYLINE Innovation Software, we assist large enterprises and public sector organizations in realizing the full potential of their businesses. By utilizing cutting-edge IT systems and world-class technology partners, we guide our clients from concept to profitability and goal attainment.</p>
                     <p>Our deep understanding of local culture combined with global technology expertise makes us the ideal partner for your digital transformation journey.</p>
                     <div class="stats">
                         <div class="stat-item">
@@ -562,7 +590,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>info@skylineit.com</span>
+                        <span>info@skyline-software.com</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -599,7 +627,7 @@
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-            <p>&copy; 2024 Skyline IT Solutions. All rights reserved.</p>
+            <p>&copy; 2024 SKYLINE Innovation Software. All rights reserved.</p>
         </div>
     </footer>
 
@@ -622,9 +650,9 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.background = 'white';
             }
         });
 
