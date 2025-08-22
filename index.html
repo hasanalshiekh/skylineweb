@@ -935,63 +935,137 @@
             background: #f8f9fa;
         }
 
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-                 .industry-card {
-             background: rgba(255, 255, 255, 0.95);
-             backdrop-filter: blur(10px);
-             border: 1px solid rgba(196, 30, 58, 0.1);
-             padding: 2.5rem;
-             border-radius: 20px;
-             text-align: center;
-             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-             box-shadow: 
-                 0 8px 32px rgba(0, 0, 0, 0.1),
-                 inset 0 1px 0 rgba(255, 255, 255, 0.5);
-             position: relative;
-             overflow: hidden;
+                 .industries-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 2rem;
+             margin-top: 3rem;
          }
 
-                 .industry-card::before {
+         .industry-card {
+             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+             backdrop-filter: blur(20px);
+             border: 1px solid rgba(255, 255, 255, 0.3);
+             padding: 3rem 2rem;
+             border-radius: 25px;
+             box-shadow: 
+                 0 10px 40px rgba(0, 0, 0, 0.08),
+                 0 0 0 1px rgba(255, 255, 255, 0.1),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
+             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+             text-align: center;
+             position: relative;
+             overflow: hidden;
+             cursor: pointer;
+         }
+
+         .industry-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, 
+                 transparent, 
+                 rgba(196, 30, 58, 0.1), 
+                 transparent);
+             transition: left 0.6s ease;
+             z-index: 1;
+         }
+
+         .industry-card::after {
              content: '';
              position: absolute;
              top: 0;
              left: 0;
              right: 0;
              bottom: 0;
-             background: linear-gradient(45deg, rgba(196, 30, 58, 0.05), transparent);
-             transform: translateX(-100%);
-             transition: transform 0.3s ease;
+             background: linear-gradient(135deg, 
+                 rgba(196, 30, 58, 0.05) 0%, 
+                 transparent 50%, 
+                 rgba(196, 30, 58, 0.05) 100%);
+             opacity: 0;
+             transition: opacity 0.4s ease;
+             border-radius: 25px;
          }
 
-                 .industry-card:hover {
-             transform: translateY(-8px) scale(1.02);
+         .industry-card:hover {
+             transform: translateY(-15px) scale(1.02);
              box-shadow: 
-                 0 15px 35px rgba(0, 0, 0, 0.15),
-                 0 0 15px rgba(196, 30, 58, 0.1);
+                 0 25px 60px rgba(0, 0, 0, 0.15),
+                 0 0 30px rgba(196, 30, 58, 0.2),
+                 0 0 0 1px rgba(196, 30, 58, 0.1);
              border-color: rgba(196, 30, 58, 0.2);
+             background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 100%);
          }
 
-        .industry-card:hover::before {
-            transform: translateX(0);
-        }
-
-                 .industry-card:hover .industry-icon {
-             transform: scale(1.15) rotateZ(5deg);
-             color: #DC143C;
+         .industry-card:hover::before {
+             left: 100%;
          }
 
-                 .industry-icon {
-             font-size: 3rem;
-             color: #C41E3A;
-             margin-bottom: 1.5rem;
-             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-             display: inline-block;
+         .industry-card:hover::after {
+             opacity: 1;
+         }
+
+         .industry-card:hover .feature-icon {
+             transform: scale(1.15) rotate(5deg);
+             box-shadow: 
+                 0 8px 25px rgba(196, 30, 58, 0.5),
+                 0 0 0 1px rgba(255, 255, 255, 0.3);
+         }
+
+         .industry-card:hover .feature-icon::before {
+             opacity: 1;
+             animation: pulse 2s ease-in-out infinite;
+         }
+
+         .industry-card:hover h3 {
+             color: #1a252f;
+             transform: translateX(5px);
+         }
+
+         .industry-card:hover h3::after {
+             width: 60px;
+         }
+
+         .industry-card:hover p {
+             color: #34495e;
+             transform: translateX(3px);
+         }
+
+         .industry-card h3 {
+             font-size: 1.6rem;
+             font-weight: 700;
+             margin-bottom: 1.2rem;
+             color: #2c3e50;
+             margin-top: 1.5rem;
+             padding-left: 45px;
+             position: relative;
+             z-index: 2;
+             transition: all 0.4s ease;
+         }
+
+         .industry-card h3::after {
+             content: '';
+             position: absolute;
+             bottom: -5px;
+             left: 45px;
+             width: 0;
+             height: 3px;
+             background: linear-gradient(90deg, #C41E3A, #DC143C);
+             border-radius: 2px;
+             transition: width 0.4s ease;
+         }
+
+         .industry-card p {
+             color: #5a6c7d;
+             line-height: 1.7;
+             padding-left: 45px;
+             font-size: 1rem;
+             position: relative;
+             z-index: 2;
+             transition: all 0.4s ease;
          }
 
                  /* Contact Section */
@@ -1314,44 +1388,57 @@
         </div>
     </section>
 
-    <!-- Industries Section -->
-    <section id="industries" class="industries">
-        <div class="container">
-            <h2 class="section-title">Industries We Serve</h2>
-            <div class="industries-grid">
-                <div class="industry-card">
-                    <i class="fas fa-truck industry-icon"></i>
-                    <h3>Transport & Logistics</h3>
-                    <p>Smart systems and digital technologies for automated operations.</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-university industry-icon"></i>
-                    <h3>Finance & Banking</h3>
-                    <p>Next-generation technology-led financial services with data privacy.</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-industry industry-icon"></i>
-                    <h3>Manufacturing</h3>
-                    <p>Digital solutions for business intelligence and autonomous operations.</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-hospital industry-icon"></i>
-                    <h3>Healthcare</h3>
-                    <p>Digital health technologies keeping patients at the center.</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-graduation-cap industry-icon"></i>
-                    <h3>Education</h3>
-                    <p>Innovative digital tools for competitive knowledge development.</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-city industry-icon"></i>
-                    <h3>Smart Cities</h3>
-                    <p>Solutions for better livability and sustainable environments.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+         <!-- Industries Section -->
+     <section id="industries" class="industries">
+         <div class="container">
+             <h2 class="section-title">Industries We Serve</h2>
+             <p class="section-description">Our ERP and software solutions cater to a diverse range of industries, including:</p>
+             <div class="industries-grid">
+                 <div class="industry-card">
+                     <div class="feature-icon">
+                         <i class="fas fa-industry"></i>
+                     </div>
+                     <h3>Manufacturing</h3>
+                     <p>Production planning, inventory management, and quality control.</p>
+                 </div>
+                 <div class="industry-card">
+                     <div class="feature-icon">
+                         <i class="fas fa-shopping-cart"></i>
+                     </div>
+                     <h3>Retail & E-commerce</h3>
+                     <p>Sales tracking, POS integration, and customer engagement.</p>
+                 </div>
+                 <div class="industry-card">
+                     <div class="feature-icon">
+                         <i class="fas fa-hospital"></i>
+                     </div>
+                     <h3>Healthcare</h3>
+                     <p>Patient records management, billing, and compliance tracking.</p>
+                 </div>
+                 <div class="industry-card">
+                     <div class="feature-icon">
+                         <i class="fas fa-university"></i>
+                     </div>
+                     <h3>Finance & Banking</h3>
+                     <p>Accounting, risk management, and financial reporting.</p>
+                 </div>
+                 <div class="industry-card">
+                     <div class="feature-icon">
+                         <i class="fas fa-truck"></i>
+                     </div>
+                     <h3>Logistics & Supply Chain</h3>
+                     <p>Fleet tracking, warehouse management, and procurement solutions.</p>
+                 </div>
+                 <div class="industry-card">
+                     <div class="feature-icon">
+                         <i class="fas fa-graduation-cap"></i>
+                     </div>
+                     <h3>Education & Government</h3>
+                     <p>Student information systems, HR, and administrative automation.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
