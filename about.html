@@ -382,53 +382,96 @@
             padding: 0 2rem;
         }
 
-        /* About Section */
-        .about-section {
-            padding: 80px 0;
-            background: white;
-        }
+                 /* About Section */
+         .about-section {
+             padding: 80px 0;
+             background: white;
+         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+         .about-subsection {
+             margin-bottom: 4rem;
+             padding: 2rem;
+             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+             backdrop-filter: blur(20px);
+             border: 1px solid rgba(255, 255, 255, 0.3);
+             border-radius: 25px;
+             box-shadow: 
+                 0 10px 40px rgba(0, 0, 0, 0.08),
+                 0 0 0 1px rgba(255, 255, 255, 0.1),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
+             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+             position: relative;
+             overflow: hidden;
+         }
 
-        .about-text h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+         .about-subsection::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, 
+                 transparent, 
+                 rgba(196, 30, 58, 0.05), 
+                 transparent);
+             transition: left 0.6s ease;
+             z-index: 1;
+         }
 
-        .about-text p {
-            font-size: 1.1rem;
-            color: #5a6c7d;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
+         .about-subsection:hover {
+             transform: translateY(-5px);
+             box-shadow: 
+                 0 20px 60px rgba(0, 0, 0, 0.12),
+                 0 0 30px rgba(196, 30, 58, 0.1);
+         }
 
-        .about-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
+         .about-subsection:hover::before {
+             left: 100%;
+         }
 
-        .about-image img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
-        }
+         .subsection-title {
+             font-size: 2rem;
+             font-weight: 700;
+             margin-bottom: 1.5rem;
+             color: #C41E3A;
+             position: relative;
+             z-index: 2;
+         }
 
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
+         .about-subsection p {
+             font-size: 1.1rem;
+             color: #5a6c7d;
+             margin-bottom: 1.5rem;
+             line-height: 1.8;
+             position: relative;
+             z-index: 2;
+         }
+
+         .mission-list {
+             list-style: none;
+             padding: 0;
+             position: relative;
+             z-index: 2;
+         }
+
+         .mission-list li {
+             display: flex;
+             align-items: flex-start;
+             margin-bottom: 1rem;
+             padding: 0.5rem 0;
+             font-size: 1.1rem;
+             color: #5a6c7d;
+             line-height: 1.6;
+         }
+
+         .mission-list li i {
+             color: #C41E3A;
+             margin-right: 1rem;
+             margin-top: 0.2rem;
+             font-size: 1rem;
+             font-weight: bold;
+         }
 
         /* Stats Section */
         .stats-section {
@@ -825,120 +868,40 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>At SKYLINE Innovation Software, we assist large enterprises and public sector organizations in realizing the full potential of their businesses. By utilizing cutting-edge IT systems and world-class technology partners, we guide our clients from concept to profitability and goal attainment.</p>
-                    <p>Our deep understanding of local culture combined with global technology expertise makes us the ideal partner for your digital transformation journey. We believe in creating solutions that not only meet today's needs but also prepare businesses for tomorrow's challenges.</p>
-                    <p>Founded with a vision to bridge the gap between traditional business processes and modern technology, SKYLINE Innovation has grown into a trusted partner for organizations across various industries.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team collaboration">
-                </div>
-            </div>
-        </div>
-    </section>
+         <!-- About Section -->
+     <section class="about-section">
+         <div class="container">
+             <h2 class="section-title">About Us</h2>
+             
+             <!-- Who We Are -->
+             <div class="about-subsection">
+                 <h3 class="subsection-title">Who We Are</h3>
+                 <p>Skyline Innovation is a leading provider of Enterprise Resource Planning (ERP) and software solutions in Jordan, dedicated to empowering businesses through cutting-edge technology and digital transformation. With a commitment to excellence, innovation, and customer satisfaction, we deliver tailored software solutions that streamline operations, enhance decision-making, and drive sustainable growth.</p>
+                 <p>Our expertise spans across multiple industries, enabling organizations to automate workflows, integrate systems, and optimize business processes with efficiency and accuracy.</p>
+             </div>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <h2 class="section-title">Our Achievements</h2>
-            <p class="section-description">Numbers that reflect our commitment to excellence and innovation</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Projects Completed</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Technology Partners</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Support Available</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">98%</span>
-                    <span class="stat-label">Client Satisfaction</span>
-                </div>
-            </div>
-        </div>
-    </section>
+             <!-- Our Vision -->
+             <div class="about-subsection">
+                 <h3 class="subsection-title">Our Vision</h3>
+                 <p>To be the local trusted technology partner driving digital transformation for businesses across Jordan and the Middle East, enabling them to thrive in a competitive and rapidly evolving digital landscape.</p>
+             </div>
 
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <h2 class="section-title">Our Leadership Team</h2>
-            <p class="section-description">Meet the experts who drive innovation and excellence at SKYLINE</p>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="team-name">Ahmed Al-Rashid</h3>
-                    <p class="team-role">Chief Executive Officer</p>
-                    <p class="team-description">Visionary leader with over 15 years of experience in technology and business transformation.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="team-name">Sarah Al-Zahra</h3>
-                    <p class="team-role">Chief Technology Officer</p>
-                    <p class="team-description">Expert in emerging technologies with a passion for creating innovative solutions.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="team-name">Mohammed Al-Sayed</h3>
-                    <p class="team-role">Chief Operations Officer</p>
-                    <p class="team-description">Operations specialist focused on delivering excellence in every project.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+             <!-- Our Mission -->
+             <div class="about-subsection">
+                 <h3 class="subsection-title">Our Mission</h3>
+                 <p>At Skyline Innovation, our mission is to deliver scalable, intelligent, and fully customized ERP and software solutions that enhance business performance. We aim to:</p>
+                 <ul class="mission-list">
+                     <li><i class="fas fa-check"></i> Empower businesses with innovative, user-friendly, and data-driven solutions.</li>
+                     <li><i class="fas fa-check"></i> Optimize operations through seamless automation and process efficiency.</li>
+                     <li><i class="fas fa-check"></i> Enhance decision-making with real-time insights and advanced analytics.</li>
+                     <li><i class="fas fa-check"></i> Ensure security and compliance through state-of-the-art security protocols.</li>
+                     <li><i class="fas fa-check"></i> Provide continuous support to help businesses adapt and grow with technology.</li>
+                 </ul>
+             </div>
+         </div>
+     </section>
 
-    <!-- Values Section -->
-    <section class="values-section">
-        <div class="container">
-            <h2 class="section-title">Our Core Values</h2>
-            <p class="section-description">The principles that guide everything we do</p>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3 class="value-title">Innovation</h3>
-                    <p class="value-description">We constantly push boundaries to create cutting-edge solutions that drive business growth.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="value-title">Trust</h3>
-                    <p class="value-description">Building long-term relationships based on transparency, reliability, and mutual respect.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3 class="value-title">Excellence</h3>
-                    <p class="value-description">Delivering the highest quality solutions that exceed expectations and drive results.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="value-title">Collaboration</h3>
-                    <p class="value-description">Working together with clients and partners to achieve shared success.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
