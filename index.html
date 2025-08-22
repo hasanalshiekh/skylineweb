@@ -1340,6 +1340,23 @@
             transition: all 0.4s ease;
         }
 
+        .footer-logo-tagline {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            margin-left: 0.5rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            line-height: 1.2;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo:hover .footer-logo-tagline {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
         .footer-nav {
             display: flex;
             gap: 2rem;
@@ -1751,6 +1768,7 @@
             <div class="footer-bottom">
                 <div class="footer-logo">
                     <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
+                    <span class="footer-logo-tagline">Innovation Software</span>
                 </div>
                 
                 <div class="footer-nav">
