@@ -1,0 +1,5 @@
+[33m5d1f1d4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Fix mobile navbar z-index issue
+[33ma2c563a[m Fix mobile navbar visibility issue - ensure header stays above slider and sections on all devices
+[33m64301e1[m Fix mobile navbar z-index to ensure it appears above slider when active
+[33m2aa3ce9[m Fix mobile navigation menu to be visible and functional on all screen sizes
+[33mdae9a2e[m Add comprehensive responsive design for all screen sizes including mobile
