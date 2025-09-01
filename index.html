@@ -1103,6 +1103,26 @@
             align-items: center;
         }
 
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            transform: scale(1);
+            filter: brightness(1) contrast(1);
+            cursor: pointer;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 
+                0 20px 50px rgba(139, 0, 0, 0.3), 
+                0 0 30px rgba(139, 0, 0, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.1) contrast(1.1) saturate(1.2);
+            border-radius: 20px;
+        }
+
         .about-text h2 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -2596,8 +2616,7 @@
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                        alt="Team collaboration"
-                        style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        alt="Team collaboration">
                 </div>
             </div>
         </div>
