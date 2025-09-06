@@ -1,12 +1,19 @@
 # SKYLINE Web Project - Scratchpad
 
-## Current Task: إضافة Cursor Particle Effect لصفحة download-center.html
+## Current Task: إضافة Cursor Particle Effect لجميع الصفحات
 
 ### Task Description
-إضافة نفس تأثير الجسيمات للماوس الموجود في صفحة index.html إلى صفحة download-center.html. التأثير يتضمن:
+إضافة نفس تأثير الجسيمات للماوس الموجود في صفحة index.html إلى جميع صفحات المشروع. التأثير يتضمن:
 - Cursor Particle Effect (جسيمات برمجية تظهر عند تحريك الماوس)
 - Mouse Trail Effect (أثر ذيل الماوس)
 - Cursor Spray/Smoke Effect (تأثير الرش/الدخان)
+
+### الصفحات المطلوب تحديثها:
+- about.html
+- products&solutions.html  
+- events-news.html
+- download-center.html (موجود بالفعل)
+- index.html (موجود بالفعل)
 
 ### Progress
 - [x] إنشاء branch جديد للمهمة
@@ -15,8 +22,11 @@
 - [x] إضافة دالة createMouseTrail  
 - [x] إضافة دالة createCursorSpray
 - [x] إضافة event listener للماوس
-- [x] اختبار التأثير (تم فتح الملف في المتصفح)
-- [ ] كتابة unit test
+- [x] إضافة التأثير لصفحة about.html
+- [x] إضافة التأثير لصفحة products&solutions.html
+- [x] إضافة التأثير لصفحة events-news.html
+- [x] اختبار جميع الصفحات (تم فتحها في المتصفح)
+- [x] كتابة unit test
 - [ ] commit التغييرات
 - [ ] إنشاء pull request
 

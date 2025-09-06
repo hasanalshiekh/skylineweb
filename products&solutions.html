@@ -1963,6 +1963,182 @@
                 alert('Video player would open here. In a real implementation, this would show a video modal or redirect to the video page.');
             });
         });
+
+        // Advanced Cursor Effects with Programming Symbols
+        const programmingSymbols = [
+            '<>', '{}', '[]', '()', '//', '/*', '&&', '||', '==', '!=',
+            '+=', '-=', '*=', '/=', '++', '--', '=>', '<=', '>=', '<<',
+            '>>', '::', '->', '=>', '??', '?.', '!', '&', '|', '^',
+            '~', '%', '=', '+', '-', '*', '/', '<', '>', ';', ':',
+            ',', '.', '?', '=>', '<=', '>=', '!=', '==', '===', '!==',
+            '&&', '||', '!', 'typeof', 'instanceof', 'in', 'delete',
+            'void', 'new', 'this', 'super', 'extends', 'class', 'function',
+            'const', 'let', 'var', 'return', 'break', 'continue', 'if', 'else',
+            'for', 'while', 'do', 'switch', 'case', 'default', 'try', 'catch',
+            'finally', 'throw', 'import', 'export', 'from', 'as', 'default'
+        ];
+
+        let symbolCounter = 0;
+
+        // Advanced Cursor Effects with Programming Symbols
+        document.addEventListener('mousemove', function (e) {
+            // Create multiple effects for rich cursor experience
+            if (symbolCounter % 2 === 0) {
+                createCursorParticle(e);
+            }
+            if (symbolCounter % 3 === 0) {
+                createMouseTrail(e);
+            }
+            if (symbolCounter % 4 === 0) {
+                createCursorSpray(e);
+            }
+
+            symbolCounter++;
+        });
+
+        // Cursor Particle Effect
+        function createCursorParticle(e) {
+            const symbol = document.createElement('div');
+            symbol.className = 'cursor-particle';
+
+            const randomSymbol = programmingSymbols[Math.floor(Math.random() * programmingSymbols.length)];
+            symbol.textContent = randomSymbol;
+
+            const randomSize = Math.random() * 12 + 16;
+            const randomColor = Math.random() > 0.5 ? '#C41E3A' : '#8B0000';
+            const randomRotation = Math.random() * 360;
+
+            symbol.style.cssText = `
+                 position: fixed;
+                 font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+                 font-size: ${randomSize}px;
+                 font-weight: bold;
+                 color: ${randomColor};
+                 text-shadow: 0 0 20px ${randomColor};
+                 pointer-events: none;
+                 z-index: 9999;
+                 user-select: none;
+                 left: ${e.clientX}px;
+                 top: ${e.clientY}px;
+                 transform: rotate(${randomRotation}deg);
+                 opacity: 0;
+                 transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                 filter: drop-shadow(0 0 10px ${randomColor});
+             `;
+
+            document.body.appendChild(symbol);
+
+            requestAnimationFrame(() => {
+                symbol.style.opacity = '1';
+                symbol.style.transform = `
+                     translateY(-${Math.random() * 80 + 40}px) 
+                     translateX(${(Math.random() - 0.5) * 60}px) 
+                     rotate(${randomRotation + Math.random() * 360}deg) 
+                     scale(${Math.random() * 0.3 + 0.7})
+                 `;
+            });
+
+            setTimeout(() => {
+                if (symbol.parentNode) {
+                    symbol.style.opacity = '0';
+                    symbol.style.transform += ' scale(0.1)';
+                    setTimeout(() => symbol.remove(), 200);
+                }
+            }, 1500);
+        }
+
+        // Mouse Trail Effect
+        function createMouseTrail(e) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+
+            const randomSymbol = programmingSymbols[Math.floor(Math.random() * programmingSymbols.length)];
+            trail.textContent = randomSymbol;
+
+            const randomSize = Math.random() * 10 + 14;
+            const randomColor = Math.random() > 0.5 ? '#C41E3A' : '#8B0000';
+
+            trail.style.cssText = `
+                 position: fixed;
+                 font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+                 font-size: ${randomSize}px;
+                 font-weight: bold;
+                 color: ${randomColor};
+                 text-shadow: 0 0 15px ${randomColor};
+                 pointer-events: none;
+                 z-index: 9998;
+                 user-select: none;
+                 left: ${e.clientX}px;
+                 top: ${e.clientY}px;
+                 opacity: 0.8;
+                 transform: scale(1);
+                 transition: all 2s ease-out;
+                 filter: drop-shadow(0 0 8px ${randomColor});
+             `;
+
+            document.body.appendChild(trail);
+
+            requestAnimationFrame(() => {
+                trail.style.opacity = '0';
+                trail.style.transform = 'scale(0.5) translateY(-20px)';
+            });
+
+            setTimeout(() => {
+                if (trail.parentNode) trail.remove();
+            }, 2000);
+        }
+
+        // Cursor Spray/Smoke Effect
+        function createCursorSpray(e) {
+            // Create multiple small particles for spray effect
+            for (let i = 0; i < 3; i++) {
+                const spray = document.createElement('div');
+                spray.className = 'cursor-spray';
+
+                const randomSymbol = programmingSymbols[Math.floor(Math.random() * programmingSymbols.length)];
+                spray.textContent = randomSymbol;
+
+                const randomSize = Math.random() * 8 + 10;
+                const randomColor = Math.random() > 0.5 ? '#C41E3A' : '#8B0000';
+                const randomRotation = Math.random() * 360;
+                const randomOffsetX = (Math.random() - 0.5) * 30;
+                const randomOffsetY = (Math.random() - 0.5) * 30;
+
+                spray.style.cssText = `
+                     position: fixed;
+                     font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+                     font-size: ${randomSize}px;
+                     font-weight: bold;
+                     color: ${randomColor};
+                     text-shadow: 0 0 12px ${randomColor};
+                     pointer-events: none;
+                     z-index: 9997;
+                     user-select: none;
+                     left: ${e.clientX + randomOffsetX}px;
+                     top: ${e.clientY + randomOffsetY}px;
+                     transform: rotate(${randomRotation}deg);
+                     opacity: 0.6;
+                     transition: all 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                     filter: drop-shadow(0 0 6px ${randomColor});
+                 `;
+
+                document.body.appendChild(spray);
+
+                requestAnimationFrame(() => {
+                    spray.style.opacity = '0';
+                    spray.style.transform = `
+                         translateY(-${Math.random() * 60 + 30}px) 
+                         translateX(${(Math.random() - 0.5) * 40}px) 
+                         rotate(${randomRotation + Math.random() * 180}deg) 
+                         scale(0.3)
+                     `;
+                });
+
+                setTimeout(() => {
+                    if (spray.parentNode) spray.remove();
+                }, 1800);
+            }
+        }
     </script>
 </body>
 </html>
