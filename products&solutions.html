@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Solutions - SKYLINE Innovation Software</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            background: #fff;
+        }
+
+        /* Creative Background Elements */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+            animation: float 20s infinite linear;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #8B0000, #A52A2A);
+            border-radius: 50%;
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #000, #333);
+            transform: rotate(45deg);
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            top: 40%;
+            left: 80%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #8B0000, #000);
+            border-radius: 30%;
+            animation-duration: 35s;
+            animation-delay: 10s;
+        }
+
+        .shape:nth-child(4) {
+            top: 80%;
+            left: 20%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #A52A2A, #8B0000);
+            border-radius: 50%;
+            animation-duration: 40s;
+            animation-delay: 15s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(30px) rotate(240deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(360deg);
+            }
+        }
+
+
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.05), rgba(196, 30, 58, 0.05));
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 40px rgba(196, 30, 58, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.03), rgba(196, 30, 58, 0.03));
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 0, 0, 0.6);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.2);
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features li {
+            color: #666;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-features li i {
+            color: #C41E3A;
+            font-size: 0.9rem;
+        }
+
+        .product-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(139, 0, 0, 0.3);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .product-cta:hover {
+            background: #C41E3A;
+            transform: translateY(-2px);
+        }
+
+        /* Demo Booking Section */
+        .demo-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.05), rgba(196, 30, 58, 0.05));
+        }
+
+        .demo-container {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .demo-description {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .demo-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #C41E3A;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .demo-btn {
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Product Videos Section */
+        .videos-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.03), rgba(196, 30, 58, 0.03));
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 0, 0, 0.6);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.2);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            height: 250px;
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .video-thumbnail:hover::before {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(196, 30, 58, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-thumbnail:hover .play-button {
+            transform: scale(1.1);
+            background: #C41E3A;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        .video-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .video-duration {
+            color: #C41E3A;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+
+
+        /* Footer - Modern & Creative */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Footer Top Section */
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-column {
+            text-align: left;
+        }
+
+        .footer-icon {
+            width: 50px;
+            height: 50px;
+            background: #8B0000;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column:hover .footer-icon {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3);
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: underline;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #8B0000;
+        }
+
+        /* Newsletter Form */
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: #333;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .newsletter-input::placeholder {
+            color: #999;
+        }
+
+        .newsletter-btn {
+            width: 45px;
+            height: 45px;
+            background: #8B0000;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .newsletter-btn:hover {
+            background: #A52A2A;
+            transform: scale(1.05);
+        }
+
+        /* Footer Bottom Section */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
+            z-index: 3;
+        }
+
+        .footer-logo .logo-sky {
+            color: #C41E3A;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-shadow:
+                0 0 10px rgba(196, 30, 58, 0.5),
+                0 0 20px rgba(196, 30, 58, 0.3),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+
+        .footer-logo .logo-yline {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 15px rgba(255, 255, 255, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .footer-logo-tagline {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            margin-left: 0.5rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            line-height: 1.2;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo:hover .footer-logo-tagline {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #C41E3A;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .company-name {
+            text-decoration: underline;
+            color: #C41E3A;
+        }
+
+        /* Red Gradient Shape */
+        .footer-gradient {
+            position: absolute;
+            bottom: -50px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #C41E3A 0%, rgba(196, 30, 58, 0.3) 50%, transparent 100%);
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        /* Navbar Scroll Effect */
+        .header.scrolled {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(139, 0, 0, 0.95) 100%) !important;
+            box-shadow: 0 8px 32px rgba(139, 0, 0, 0.4), 0 0 20px rgba(139, 0, 0, 0.3) !important;
+        }
+
+        .header.scrolled .logo-yline {
+            color: #000 !important;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-form {
+                grid-template-columns: 1fr;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+            }
+
+            .mobile-sidenav {
+                display: block !important;
+            }
+
+            .mobile-overlay {
+                display: block !important;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Component -->
+<style>
+    .header {
+        background: linear-gradient(135deg, #8B0000 0%, #000 30%, #000 70%, #8B0000 100%);
+        backdrop-filter: blur(20px);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 99999;
+        box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3), 0 0 20px rgba(139, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .logo-sky {
+        color: #8B0000;
+        font-weight: 800;
+        font-size: 2.2rem;
+        text-shadow:
+            0 0 10px rgba(139, 0, 0, 0.5),
+            0 0 20px rgba(139, 0, 0, 0.3),
+            0 2px 4px rgba(0, 0, 0, 0.3);
+        animation: logoGlow 2s ease-in-out infinite alternate;
+    }
+
+    .logo-yline {
+        color: #fff;
+        font-weight: 700;
+        font-size: 2.2rem;
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.3),
+            0 0 15px rgba(255, 255, 255, 0.2),
+            0 2px 4px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease;
+    }
+
+    .logo-tagline {
+        font-size: 0.6rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 400;
+        margin-left: 0.5rem;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        line-height: 1.2;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        z-index: 3;
+    }
+
+    .nav-menu a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.4s ease;
+    }
+
+    .nav-menu a:hover {
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown {
+        position: relative;
+        overflow: visible;
+    }
+
+    .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .dropdown-toggle::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+        border-radius: 25px;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-toggle i {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-toggle {
+        color: #fff;
+        transform: translateY(-2px);
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.8),
+            0 2px 5px rgba(0, 0, 0, 0.5);
+        box-shadow:
+            0 5px 15px rgba(255, 255, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .dropdown:hover .dropdown-toggle::before {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .dropdown:hover .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-toggle:active {
+        transform: translateY(0);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        padding: 1rem 0;
+        margin: 0.5rem 0 0 0;
+        min-width: 250px;
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(139, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    visibility 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-delay: 0s, 0.1s, 0s;
+        z-index: 10005;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+        overflow: visible;
+        list-style: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+    }
+
+    .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+    }
+
+    .dropdown-menu li:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+    }
+
+    .dropdown::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 10px;
+        background: transparent;
+        z-index: 10004;
+    }
+
+    .dropdown:hover::after {
+        opacity: 1;
+    }
+
+    .dropdown-menu li {
+        margin: 0;
+        list-style: none;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 0.8rem 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .dropdown-menu a:first-child {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .dropdown-menu a:last-child {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .dropdown-menu a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        transform: translateX(5px);
+        padding-left: 2rem;
+        text-decoration: none;
+    }
+
+    .dropdown-menu a:hover::before {
+        left: 100%;
+    }
+
+    .dropdown-menu a:hover::after {
+        content: '→';
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #C41E3A;
+        font-weight: bold;
+        animation: slideIn 0.3s ease;
+        text-decoration: none;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50%) translateX(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+    }
+
+    @keyframes logoGlow {
+        from {
+            text-shadow:
+                0 0 10px rgba(139, 0, 0, 0.5),
+                0 0 20px rgba(139, 0, 0, 0.3),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        to {
+            text-shadow:
+                0 0 20px rgba(139, 0, 0, 0.8),
+                0 0 30px rgba(139, 0, 0, 0.5),
+                0 0 40px rgba(139, 0, 0, 0.3),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .mobile-menu-btn {
+        display: none !important;
+        flex-direction: column;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        border-radius: 8px;
+        gap: 4px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-menu-btn span {
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-sidenav {
+        display: none !important;
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+        z-index: 99998;
+        transition: all 0.4s ease;
+        padding-top: 80px;
+        overflow-y: auto;
+    }
+
+    .mobile-sidenav.active { left: 0; }
+    
+    .mobile-sidenav ul { list-style: none; padding: 0; margin: 0; }
+    
+    .mobile-sidenav a {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1.5rem;
+        color: white;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        margin: 0.5rem 1rem;
+        border-radius: 15px;
+    }
+
+    .mobile-sidenav a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(8px);
+    }
+
+    .mobile-overlay {
+        display: none !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 99997;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+
+    /* Mobile Dropdown Styles */
+    .mobile-dropdown {
+        position: relative;
+    }
+
+    .mobile-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 0.2rem 0;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .mobile-dropdown-toggle:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-dropdown.active .mobile-dropdown-toggle {
+        background: rgba(196, 30, 58, 0.1);
+        color: #C41E3A;
+    }
+
+    .dropdown-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex: 1;
+        text-decoration: none;
+        color: inherit;
+        padding: 0.8rem 1rem;
+    }
+
+    .dropdown-arrow {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+        color: rgba(255, 255, 255, 0.7);
+        margin-left: auto;
+        padding: 0.6rem;
+        cursor: pointer;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-arrow:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #C41E3A;
+        transform: scale(1.1);
+    }
+
+    .mobile-dropdown.active .dropdown-arrow {
+        transform: rotate(180deg);
+        color: #C41E3A;
+        background: rgba(196, 30, 58, 0.15);
+    }
+
+    .mobile-dropdown-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        background: rgba(0, 0, 0, 0.25);
+        margin: 0.5rem 1rem 0;
+        border-radius: 10px;
+        border-left: 3px solid #8B0000;
+        opacity: 0;
+        visibility: hidden;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-dropdown.active .mobile-dropdown-menu {
+        max-height: 300px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-dropdown-menu li {
+        margin: 0;
+    }
+
+    .mobile-dropdown-menu a {
+        padding: 1rem 1.2rem 1rem 2.8rem;
+        margin: 0.3rem 0.6rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.08);
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-height: 44px;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+    }
+
+    .mobile-dropdown-menu a:hover {
+        background: rgba(196, 30, 58, 0.1);
+        border-left-color: #C41E3A;
+        transform: translateX(3px);
+        color: #C41E3A;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            display: block !important;
+            position: fixed !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        .nav-container { display: flex !important; justify-content: space-between !important; }
+        .nav-menu { display: none !important; }
+        .mobile-menu-btn { display: flex !important; }
+        .mobile-sidenav { display: block !important; }
+        .mobile-overlay { display: block !important; }
+        body.mobile-menu-open { overflow: hidden !important; }
+    }
+</style>
+
+<header class="header">
+    <nav class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
+            <span class="logo-tagline">Innovation Software</span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="about.html" class="dropdown-toggle">About <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="about.html#company-profile">Company Profile</a></li>
+                    <li><a href="about.html#vision-mission">Vision & Mission</a></li>
+                    <li><a href="about.html#leadership">Leadership Team</a></li>
+                    <li><a href="about.html#values">Our Values</a></li>
+                    <li><a href="about.html#partners">Strategic Partners</a></li>
+                    <li><a href="about.html#alliances">Strategic Alliances</a></li>
+                    <li><a href="about.html#clients">Our Clients</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="products&solutions.html" class="dropdown-toggle">Products & Solutions <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="products&solutions.html">Our Products & Solutions</a></li>
+                    <li><a href="products&solutions.html#software-solutions">Software Solutions</a></li>
+                    <li><a href="products&solutions.html#demo">Book Your Demo</a></li>
+                    <li><a href="products&solutions.html#videos">Product Videos</a></li>
+                    <li><a href="download-center.html">Download Center</a></li>
+                </ul>
+            </li>
+            <li><a href="events-news.html">Events & News</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+</header>
+
+<aside class="mobile-sidenav" id="mobileSidenav">
+    <ul>
+        <li class="mobile-dropdown">
+            <div class="mobile-dropdown-toggle">
+                <a href="index.html" class="dropdown-link"><span class="icon">🏠</span><span class="label">Home</span></a>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+            <ul class="mobile-dropdown-menu">
+                <li><a href="index.html#industries"><span class="icon">🏢</span><span class="label">Industries</span></a></li>
+                <li><a href="index.html#services"><span class="icon">💡</span><span class="label">Why Choose Us</span></a></li>
+            </ul>
+        </li>
+        <li><a href="about.html"><span class="icon">👥</span><span class="label">About</span></a></li>
+        <li class="mobile-dropdown products-dropdown">
+            <div class="mobile-dropdown-toggle">
+                <a href="products&solutions.html" class="dropdown-link"><span class="icon">🛠️</span><span class="label">Products & Solutions</span></a>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+            <ul class="mobile-dropdown-menu">
+                <li><a href="products&solutions.html"><span class="icon">📦</span><span class="label">Our Products & Solutions</span></a></li>
+                <li><a href="products&solutions.html#software-solutions"><span class="icon">💻</span><span class="label">Software Solutions</span></a></li>
+                <li><a href="products&solutions.html#demo"><span class="icon">🎬</span><span class="label">Book Your Demo</span></a></li>
+                <li><a href="products&solutions.html#videos"><span class="icon">🎥</span><span class="label">Product Videos</span></a></li>
+                <li><a href="download-center.html"><span class="icon">⬇️</span><span class="label">Download Center</span></a></li>
+            </ul>
+        </li>
+        <li><a href="events-news.html"><span class="icon">📰</span><span class="label">Events & News</span></a></li>
+        <li><a href="index.html#contact"><span class="icon">📞</span><span class="label">Contact</span></a></li>
+    </ul>
+</aside>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<script>
+    const mobileSidenav = document.getElementById('mobileSidenav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+    function toggleMobileSidenav() {
+        const isActive = mobileSidenav.classList.contains('active');
+        if (isActive) {
+            mobileSidenav.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+        } else {
+            mobileSidenav.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.classList.add('mobile-menu-open');
+        }
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleMobileSidenav();
+        });
+    }
+
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', toggleMobileSidenav);
+    }
+
+    if (mobileSidenav) {
+        mobileSidenav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileSidenav.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            });
+        });
+    }
+
+    console.log('Navbar loaded successfully in products&solutions.html');
+
+    // Mobile dropdown functionality
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    
+    function closeAllMobileDropdowns() {
+        document.querySelectorAll('.mobile-dropdown').forEach(dd => {
+            dd.classList.remove('active');
+        });
+    }
+    
+    function toggleMobileDropdown(dropdown) {
+        const isActive = dropdown.classList.contains('active');
+        closeAllMobileDropdowns();
+        if (!isActive) {
+            dropdown.classList.add('active');
+        }
+    }
+    
+    mobileDropdownToggles.forEach((toggle) => {
+        const dropdown = toggle.closest('.mobile-dropdown');
+        const dropdownArrow = toggle.querySelector('.dropdown-arrow');
+        const dropdownLink = toggle.querySelector('.dropdown-link');
+        
+        if (dropdownArrow) {
+            dropdownArrow.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMobileDropdown(dropdown);
+            });
+            
+            dropdownArrow.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMobileDropdown(dropdown);
+            }, { passive: false });
+        }
+        
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', function(e) {
+                // Allow normal navigation
+            });
+        }
+        
+        toggle.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown-link') && !e.target.classList.contains('dropdown-arrow')) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMobileDropdown(dropdown);
+            }
+        });
+    });
+</script>
+    
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Products & Solutions</h1>
+            <p>Discover our comprehensive suite of software solutions, SaaS platforms, and innovative tools designed to transform your business operations</p>
+            <a href="#demo" class="hero-cta">
+                <i class="fas fa-calendar-check"></i>
+                Book Your Demo
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="software-solutions" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Software Solutions</h2>
+                <p class="section-subtitle">Comprehensive tools and platforms to drive your business forward</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- ERP Solution -->
+                <div id="erp-solutions" class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="product-title">SKYLINE ERP</h3>
+                    <p class="product-description">Complete Enterprise Resource Planning solution for modern businesses</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Financial Management</li>
+                        <li><i class="fas fa-check"></i> Inventory Control</li>
+                        <li><i class="fas fa-check"></i> HR & Payroll</li>
+                        <li><i class="fas fa-check"></i> Supply Chain</li>
+                        <li><i class="fas fa-check"></i> Business Intelligence</li>
+                    </ul>
+                    <a href="#demo" class="product-cta">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- CRM Solution -->
+                <div id="crm-solutions" class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="product-title">SKYLINE CRM</h3>
+                    <p class="product-description">Customer Relationship Management platform to boost sales and customer satisfaction</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Lead Management</li>
+                        <li><i class="fas fa-check"></i> Sales Pipeline</li>
+                        <li><i class="fas fa-check"></i> Customer Support</li>
+                        <li><i class="fas fa-check"></i> Analytics Dashboard</li>
+                        <li><i class="fas fa-check"></i> Mobile App</li>
+                    </ul>
+                    <a href="#demo" class="product-cta">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- E-commerce Platform -->
+                <div id="ecommerce-solutions" class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="product-title">SKYLINE Commerce</h3>
+                    <p class="product-description">Full-featured e-commerce platform for online businesses</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Product Management</li>
+                        <li><i class="fas fa-check"></i> Payment Gateway</li>
+                        <li><i class="fas fa-check"></i> Order Processing</li>
+                        <li><i class="fas fa-check"></i> Marketing Tools</li>
+                        <li><i class="fas fa-check"></i> Multi-store Support</li>
+                    </ul>
+                    <a href="#demo" class="product-cta">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- AI Analytics -->
+                <div id="ai-analytics" class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="product-title">SKYLINE AI Analytics</h3>
+                    <p class="product-description">Intelligent analytics and insights powered by artificial intelligence</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Predictive Analytics</li>
+                        <li><i class="fas fa-check"></i> Data Visualization</li>
+                        <li><i class="fas fa-check"></i> Machine Learning</li>
+                        <li><i class="fas fa-check"></i> Real-time Reports</li>
+                        <li><i class="fas fa-check"></i> Custom Dashboards</li>
+                    </ul>
+                    <a href="#demo" class="product-cta">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- Cloud Solutions -->
+                <div id="cloud-services" class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="product-title">SKYLINE Cloud</h3>
+                    <p class="product-description">Scalable cloud infrastructure and hosting solutions</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Cloud Hosting</li>
+                        <li><i class="fas fa-check"></i> Data Backup</li>
+                        <li><i class="fas fa-check"></i> Load Balancing</li>
+                        <li><i class="fas fa-check"></i> Security & SSL</li>
+                        <li><i class="fas fa-check"></i> 24/7 Monitoring</li>
+                    </ul>
+                    <a href="#demo" class="product-cta">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- Mobile Apps -->
+                <div id="mobile-solutions" class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="product-title">SKYLINE Mobile</h3>
+                    <p class="product-description">Native mobile applications for iOS and Android</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> iOS Development</li>
+                        <li><i class="fas fa-check"></i> Android Development</li>
+                        <li><i class="fas fa-check"></i> Cross-platform</li>
+                        <li><i class="fas fa-check"></i> Push Notifications</li>
+                        <li><i class="fas fa-check"></i> Offline Support</li>
+                    </ul>
+                    <a href="#demo" class="product-cta">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Booking Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Book Your Demo</h2>
+                <p class="section-subtitle">Experience our solutions firsthand with a personalized demonstration</p>
+            </div>
+            
+            <div class="demo-container">
+                <h3 class="demo-title">Schedule a Free Demo</h3>
+                <p class="demo-description">Our experts will walk you through our solutions and answer all your questions. Choose a time that works best for you.</p>
+                
+                <form class="demo-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" name="company" required placeholder="Enter your company name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product">Product Interest *</label>
+                        <select id="product" name="product" required>
+                            <option value="">Select a product</option>
+                            <option value="erp">SKYLINE ERP</option>
+                            <option value="crm">SKYLINE CRM</option>
+                            <option value="commerce">SKYLINE Commerce</option>
+                            <option value="ai">SKYLINE AI Analytics</option>
+                            <option value="cloud">SKYLINE Cloud</option>
+                            <option value="mobile">SKYLINE Mobile</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time">Preferred Time *</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select a time</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Tell us about your specific needs or questions"></textarea>
+                    </div>
+                </form>
+                
+                <button type="submit" class="demo-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    Book Demo Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Videos Section -->
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Product Videos</h2>
+                <p class="section-subtitle">Watch detailed demonstrations and tutorials of our solutions</p>
+            </div>
+            
+            <div class="videos-grid">
+                <!-- ERP Demo Video -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">SKYLINE ERP - Complete Walkthrough</h3>
+                        <p class="video-description">Learn how our ERP solution can streamline your entire business operations from finance to inventory management.</p>
+                        <span class="video-duration">15:30 min</span>
+                    </div>
+                </div>
+
+                <!-- CRM Demo Video -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">SKYLINE CRM - Sales & Customer Management</h3>
+                        <p class="video-description">Discover how our CRM platform can boost your sales performance and improve customer relationships.</p>
+                        <span class="video-duration">12:45 min</span>
+                    </div>
+                </div>
+
+                <!-- E-commerce Demo Video -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">SKYLINE Commerce - Online Store Setup</h3>
+                        <p class="video-description">Step-by-step guide to setting up your online store with our e-commerce platform.</p>
+                        <span class="video-duration">18:20 min</span>
+                    </div>
+                </div>
+
+                <!-- AI Analytics Demo Video -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">SKYLINE AI Analytics - Data Insights</h3>
+                        <p class="video-description">Explore the power of AI-driven analytics and how it can transform your business decisions.</p>
+                        <span class="video-duration">20:15 min</span>
+                    </div>
+                </div>
+
+                <!-- Cloud Solutions Demo Video -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">SKYLINE Cloud - Infrastructure Overview</h3>
+                        <p class="video-description">Learn about our cloud hosting solutions and how they can scale with your business needs.</p>
+                        <span class="video-duration">14:30 min</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Apps Demo Video -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">SKYLINE Mobile - App Development</h3>
+                        <p class="video-description">See how we create powerful mobile applications that work seamlessly across all devices.</p>
+                        <span class="video-duration">16:45 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Navbar and Footer
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Load Footer
+            fetch('fotter.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    // Initialize footer functionality after loading
+                    initializeFooter();
+                })
+                .catch(error => console.error('Error loading footer:', error));
+
+            // Initialize navbar functionality
+            initializeNavbar();
+        });
+
+        // Initialize navbar functionality
+        function initializeNavbar() {
+            const mobileSidenav = document.querySelector('.mobile-sidenav');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleMobileSidenav();
+                });
+            }
+
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', closeMobileSidenav);
+            }
+
+            if (mobileSidenav) {
+                const sidenavLinks = mobileSidenav.querySelectorAll('a');
+                sidenavLinks.forEach(link => {
+                    link.addEventListener('click', closeMobileSidenav);
+                });
+            }
+
+            // Add scroll effect to header
+            window.addEventListener('scroll', function () {
+                const header = document.querySelector('.header');
+                if (header) {
+                    if (window.scrollY > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+            });
+
+            // Close sidenav on window resize to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileSidenav();
+                }
+            });
+        }
+
+        // Initialize footer functionality
+        function initializeFooter() {
+            // Newsletter form handling
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
+                const newsletterInput = newsletterForm.querySelector('.newsletter-input');
+                
+                if (newsletterBtn && newsletterInput) {
+                    newsletterBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const email = newsletterInput.value.trim();
+                        if (email && isValidEmail(email)) {
+                            alert('Thank you for subscribing to our newsletter!');
+                            newsletterInput.value = '';
+                        } else {
+                            alert('Please enter a valid email address.');
+                        }
+                    });
+                }
+            }
+        }
+
+        // Mobile sidenav functions
+        function toggleMobileSidenav() {
+            const mobileSidenav = document.querySelector('.mobile-sidenav');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (mobileSidenav && mobileOverlay && mobileMenuBtn) {
+                const isActive = mobileSidenav.classList.contains('active');
+                
+                if (isActive) {
+                    closeMobileSidenav();
+                } else {
+                    mobileSidenav.classList.add('active');
+                    mobileOverlay.classList.add('active');
+                    mobileMenuBtn.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        }
+
+        function closeMobileSidenav() {
+            const mobileSidenav = document.querySelector('.mobile-sidenav');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (mobileSidenav && mobileOverlay && mobileMenuBtn) {
+                mobileSidenav.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Utility function for email validation
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        const demoForm = document.querySelector('.demo-form');
+        const demoBtn = document.querySelector('.demo-btn');
+
+        demoBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(demoForm);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.name || !data.company || !data.email || !data.product || !data.date || !data.time) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Thank you! We will contact you soon to confirm your demo appointment.');
+            
+            // Reset form
+            demoForm.reset();
+        });
+
+        // Video thumbnail click handling
+        document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                // Here you would typically open a video modal or redirect to video page
+                alert('Video player would open here. In a real implementation, this would show a video modal or redirect to the video page.');
+            });
+        });
+    </script>
+</body>
+</html>

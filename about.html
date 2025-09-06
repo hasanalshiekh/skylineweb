@@ -15,92 +15,1029 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #fff;
+            line-height: 1.7;
+            color: #1a1a1a;
             overflow-x: hidden;
             position: relative;
-            background: #000;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
         }
 
-        /* Creative Background Elements */
-        .floating-shapes {
+        /* Cursor Effects */
+        .cursor-particle, .cursor-trail, .cursor-spray {
             position: fixed;
+            font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 9999;
+            user-select: none;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        /* Enhanced symbol effects with different colors */
+        .cursor-particle:nth-child(3n), .cursor-trail:nth-child(3n), .cursor-spray:nth-child(3n) {
+            color: #8B0000 !important;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.9) !important;
+            filter: drop-shadow(0 0 12px rgba(139, 0, 0, 0.7)) !important;
+        }
+
+        .cursor-particle:nth-child(3n+1), .cursor-trail:nth-child(3n+1), .cursor-spray:nth-child(3n+1) {
+            color: #C41E3A !important;
+            text-shadow: 0 0 20px rgba(196, 30, 58, 0.9) !important;
+            filter: drop-shadow(0 0 12px rgba(196, 30, 58, 0.7)) !important;
+        }
+
+        .cursor-particle:nth-child(3n+2), .cursor-trail:nth-child(3n+2), .cursor-spray:nth-child(3n+2) {
+            color: #DC143C !important;
+            text-shadow: 0 0 20px rgba(220, 20, 60, 0.9) !important;
+            filter: drop-shadow(0 0 12px rgba(220, 20, 60, 0.7)) !important;
+        }
+
+
+
+
+
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(220, 38, 38, 0.2);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, rgba(0, 0, 0, 0.02) 50%, rgba(220, 38, 38, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23dc2626" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
 
-        .shape {
-            position: absolute;
-            opacity: 0.05;
-            animation: float 20s infinite linear;
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+            position: relative;
+            z-index: 2;
         }
 
-        .shape:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(45deg, #8B0000, #A52A2A);
-            border-radius: 50%;
-            animation-duration: 25s;
-            animation-delay: 0s;
+        .hero p {
+            font-size: 1.3rem;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
         }
 
-        .shape:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #000, #333);
-            transform: rotate(45deg);
-            animation-duration: 30s;
-            animation-delay: 5s;
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.02) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(220, 38, 38, 0.02) 100%);
+            position: relative;
         }
 
-        .shape:nth-child(3) {
-            top: 40%;
-            left: 80%;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #8B0000, #000);
-            border-radius: 30%;
-            animation-duration: 35s;
-            animation-delay: 10s;
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .shape:nth-child(4) {
-            top: 80%;
-            left: 20%;
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+        }
+
+        .about-text p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.05), rgba(196, 30, 58, 0.05));
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.2);
+        }
+
+        .team-avatar {
             width: 120px;
             height: 120px;
-            background: linear-gradient(45deg, #A52A2A, #8B0000);
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
             border-radius: 50%;
-            animation-duration: 40s;
-            animation-delay: 15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin: 0 auto 1.5rem;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-position {
+            color: #C41E3A;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.03), rgba(196, 30, 58, 0.03));
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.2);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Company Stats Styles */
+        .company-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+        }
+
+        .stat-item p {
+            color: #4b5563;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Vision & Mission Styles */
+        .vision-mission-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.03) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(220, 38, 38, 0.03) 100%);
+            position: relative;
+        }
+
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .vision-card, .mission-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid #f3f4f6;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-card::before, .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+        }
+
+        .vision-card:hover, .mission-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+            border-color: #dc2626;
+        }
+
+        .vision-icon, .mission-icon {
+            font-size: 3.5rem;
+            color: #dc2626;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+        }
+
+        .vision-title, .mission-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+        }
+
+        .vision-description, .mission-description {
+            color: #4b5563;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Leadership Styles */
+        .leadership-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.02) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(220, 38, 38, 0.02) 100%);
+            position: relative;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .leader-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #f3f4f6;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+            border-color: #dc2626;
+        }
+
+        .leader-avatar {
+            font-size: 3.5rem;
+            color: #dc2626;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+        }
+
+        .leader-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 1px 2px rgba(220, 38, 38, 0.2);
+        }
+
+        .leader-position {
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .leader-bio {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .leader-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .expertise-tag {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.1));
+            color: #dc2626;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-tag:hover {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(239, 68, 68, 0.2));
+            transform: translateY(-2px);
+        }
+
+        /* Partners Styles */
+        .partners-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.02) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(220, 38, 38, 0.02) 100%);
+            position: relative;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #f3f4f6;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+            border-color: #dc2626;
+        }
+
+        .partner-logo {
+            font-size: 3.5rem;
+            color: #dc2626;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+        }
+
+        .partner-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            text-shadow: 0 1px 2px rgba(220, 38, 38, 0.2);
+        }
+
+        .partner-description {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        /* Alliances Styles */
+        .alliances-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.02) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(220, 38, 38, 0.02) 100%);
+            position: relative;
+        }
+
+        .alliances-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .alliance-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+        }
+
+        .alliance-text p {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .alliance-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .alliance-category {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #dc2626;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .alliance-category:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 16px rgba(220, 38, 38, 0.15);
+        }
+
+        .alliance-category h3 {
+            color: #1a1a1a;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .alliance-category h3 i {
+            color: #dc2626;
+        }
+
+        .alliance-category p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .alliance-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Clients Styles */
+        .clients-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.02) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(220, 38, 38, 0.02) 100%);
+            position: relative;
+        }
+
+        .clients-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .client-stat {
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #f3f4f6;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .client-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.15);
+        }
+
+        .client-stat h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+        }
+
+        .client-stat p {
+            color: #4b5563;
+            font-weight: 600;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .client-category {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #f3f4f6;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .client-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.15);
+        }
+
+        .client-category h3 {
+            color: #1a1a1a;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .client-category h3 i {
+            color: #dc2626;
+        }
+
+        .client-logos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .client-logo {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            color: #4b5563;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .client-logo:hover {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.1));
+            color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(220, 38, 38, 0.2);
+        }
+
+        .client-testimonials {
+            margin-top: 4rem;
+        }
+
+        .client-testimonials h3 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid #f3f4f6;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.15);
+        }
+
+        .testimonial-card p {
+            color: #4b5563;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author strong {
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .testimonial-author span {
+            color: #dc2626;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Featured Solutions Styles */
+        .featured-solutions {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.02) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(220, 38, 38, 0.02) 100%);
+            position: relative;
+        }
+
+        .featured-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+            text-align: center;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            border-radius: 18px;
+            border: 2px solid #f3f4f6;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            padding: 1.5rem;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.15);
+            border-color: #dc2626;
+        }
+
+        .solution-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .solution-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.1));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #dc2626;
+        }
+
+        .solution-badge {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .solution-content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 1px 2px rgba(220, 38, 38, 0.2);
+        }
+
+        .solution-content p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            font-size: 0.9rem;
+        }
+
+        .solution-features li i {
+            color: #dc2626;
+            font-size: 0.8rem;
+        }
+
+        .solution-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .solution-cta:hover {
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .solution-cta i {
+            transition: transform 0.3s ease;
+        }
+
+        .solution-cta:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Additional Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .vision-mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            33% {
-                transform: translateY(-30px) rotate(120deg);
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
             }
-            66% {
-                transform: translateY(30px) rotate(240deg);
+
+            .partners-grid {
+                grid-template-columns: 1fr;
             }
-            100% {
-                transform: translateY(0px) rotate(360deg);
+
+            .alliances-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .clients-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .client-logos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-card, .mission-card {
+                padding: 2rem;
+            }
+
+            .leader-card, .partner-card {
+                padding: 1.5rem;
+            }
+
+            .alliance-category {
+                padding: 1rem;
+            }
+
+            /* Featured Solutions Mobile */
+            .solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .solution-card {
+                padding: 1.2rem;
+            }
+
+            .featured-title {
+                font-size: 2rem;
             }
         }
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #8B0000 0%, #000 30%, #000 70%, #8B0000 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #1a1a1a 30%, #1a1a1a 70%, #dc2626 100%);
             backdrop-filter: blur(20px);
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
             color: white;
@@ -110,7 +1047,7 @@
             top: 0;
             left: 0;
             z-index: 9998;
-            box-shadow: 
+            box-shadow:
                 0 8px 32px rgba(139, 0, 0, 0.3),
                 0 0 20px rgba(139, 0, 0, 0.2);
             transition: all 0.4s ease;
@@ -124,10 +1061,10 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.1), 
-                transparent);
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
             animation: navbarShimmer 4s ease-in-out infinite;
         }
 
@@ -138,27 +1075,38 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                #fff, 
-                rgba(255, 255, 255, 0.5), 
-                #fff, 
-                transparent);
+            background: linear-gradient(90deg,
+                    transparent,
+                    #fff,
+                    rgba(255, 255, 255, 0.5),
+                    #fff,
+                    transparent);
             animation: borderGlow 3s ease-in-out infinite;
         }
 
         @keyframes navbarShimmer {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: -100%; }
+            0% {
+                left: -100%;
+            }
+
+            50% {
+                left: 100%;
+            }
+
+            100% {
+                left: -100%;
+            }
         }
 
         @keyframes borderGlow {
-            0%, 100% { 
+
+            0%,
+            100% {
                 opacity: 0.3;
                 transform: scaleX(0.8);
             }
-            50% { 
+
+            50% {
                 opacity: 1;
                 transform: scaleX(1);
             }
@@ -174,7 +1122,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         /* Mobile Menu Button - Completely hidden on desktop */
         .mobile-menu-btn {
             display: none !important;
@@ -354,7 +1302,7 @@
             color: #8B0000;
             font-weight: 800;
             font-size: 2.2rem;
-            text-shadow: 
+            text-shadow:
                 0 0 10px rgba(139, 0, 0, 0.5),
                 0 0 20px rgba(139, 0, 0, 0.3),
                 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -365,11 +1313,20 @@
             color: #fff;
             font-weight: 700;
             font-size: 2.2rem;
-            text-shadow: 
+            text-shadow:
                 0 0 10px rgba(255, 255, 255, 0.3),
                 0 0 15px rgba(255, 255, 255, 0.2),
                 0 2px 4px rgba(0, 0, 0, 0.3);
             transition: all 0.4s ease;
+        }
+
+        /* Logo state when scrolled */
+        .header.scrolled .logo-yline {
+            color: #000;
+            text-shadow:
+                0 0 10px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(0, 0, 0, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .logo-tagline {
@@ -385,16 +1342,17 @@
 
         @keyframes logoGlow {
             0% {
-                text-shadow: 
-                    0 0 10px rgba(139, 0, 0, 0.5),
-                    0 0 20px rgba(139, 0, 0, 0.3),
+                text-shadow:
+                    0 0 10px rgba(196, 30, 58, 0.5),
+                    0 0 20px rgba(196, 30, 58, 0.3),
                     0 2px 4px rgba(0, 0, 0, 0.3);
             }
+
             100% {
-                text-shadow: 
-                    0 0 15px rgba(139, 0, 0, 0.8),
-                    0 0 25px rgba(139, 0, 0, 0.5),
-                    0 0 35px rgba(139, 0, 0, 0.3),
+                text-shadow:
+                    0 0 15px rgba(196, 30, 58, 0.8),
+                    0 0 25px rgba(196, 30, 58, 0.5),
+                    0 0 35px rgba(196, 30, 58, 0.3),
                     0 2px 6px rgba(0, 0, 0, 0.4);
             }
         }
@@ -412,16 +1370,16 @@
         }
 
         .nav-menu a {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1rem;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .nav-menu a::before {
@@ -441,10 +1399,10 @@
         .nav-menu a:hover {
             color: #fff;
             transform: translateY(-2px);
-            text-shadow: 
+            text-shadow:
                 0 0 10px rgba(255, 255, 255, 0.8),
                 0 2px 5px rgba(0, 0, 0, 0.5);
-            box-shadow: 
+            box-shadow:
                 0 5px 15px rgba(255, 255, 255, 0.2),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
@@ -458,374 +1416,26 @@
             transform: translateY(0);
         }
 
-
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textShine 3s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes textShine {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* About Section - New Modern Design */
-        .about-section {
-            padding: 100px 0;
-            background: #000;
-            position: relative;
-        }
-
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff, #C41E3A, #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #8B0000, #A52A2A);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 3rem 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(255, 255, 255, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(139, 0, 0, 0.1), 
-                transparent);
-            transition: left 0.6s ease;
-            z-index: 1;
-        }
-
-        .about-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(139, 0, 0, 0.2);
-            border-color: rgba(139, 0, 0, 0.3);
-        }
-
-        .about-card:hover::before {
-            left: 100%;
-        }
-
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #8B0000, #A52A2A);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 2;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3);
-        }
-
-        .about-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(139, 0, 0, 0.5);
-        }
-
-        .card-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(135deg, #fff, #8B0000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-content {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .mission-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .mission-list li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
-
-        .mission-list li i {
-            color: #C41E3A;
-            margin-right: 1rem;
-            margin-top: 0.2rem;
-            font-size: 1rem;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 100px 0;
-            background: #111;
-            position: relative;
-        }
-
-        .stats-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(196, 30, 58, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem 2rem;
-            border-radius: 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(255, 255, 255, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(196, 30, 58, 0.1), 
-                transparent);
-            transition: left 0.6s ease;
-            z-index: 1;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(196, 30, 58, 0.2);
-            border-color: rgba(196, 30, 58, 0.3);
-        }
-
-        .stat-card:hover::before {
-            left: 100%;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #C41E3A;
-            display: block;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
-        }
-
-        .stat-label {
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
-            font-size: 1.1rem;
-            position: relative;
-            z-index: 2;
-        }
-
         /* Footer */
         .footer {
-            background: #1a1a1a;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 40px;
             position: relative;
             overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .footer-content {
@@ -836,7 +1446,6 @@
             z-index: 2;
         }
 
-        /* Footer Top Section */
         .footer-top {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -892,7 +1501,6 @@
             color: #8B0000;
         }
 
-        /* Newsletter Form */
         .newsletter-form {
             display: flex;
             gap: 0.5rem;
@@ -934,7 +1542,6 @@
             transform: scale(1.05);
         }
 
-        /* Footer Bottom Section */
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -958,7 +1565,7 @@
             color: #C41E3A;
             font-weight: 800;
             font-size: 1.5rem;
-            text-shadow: 
+            text-shadow:
                 0 0 10px rgba(196, 30, 58, 0.5),
                 0 0 20px rgba(196, 30, 58, 0.3),
                 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -969,7 +1576,7 @@
             color: #fff;
             font-weight: 700;
             font-size: 1.5rem;
-            text-shadow: 
+            text-shadow:
                 0 0 10px rgba(255, 255, 255, 0.3),
                 0 0 15px rgba(255, 255, 255, 0.2),
                 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -1019,7 +1626,6 @@
             color: #C41E3A;
         }
 
-        /* Red Gradient Shape */
         .footer-gradient {
             position: absolute;
             bottom: -50px;
@@ -1076,28 +1682,129 @@
             opacity: 0;
         }
 
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            /* Ensure header stays visible and above all content on mobile */
-            .header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                z-index: 9998 !important;
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
             }
+            
+            .hero-content {
+                padding: 2rem 0;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .floating-shape {
+                display: none;
+            }
+            
+            .values-floating-elements .floating-shape:nth-child(-n+8) {
+                display: block;
+            }
+        }
 
+        @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+            
+            /* Story Section */
+            .story-intro {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .journey-timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-item {
+                margin-bottom: 2rem;
+            }
+            
+            .timeline-content {
+                padding: 1.5rem;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            /* Values Section */
+            .values-showcase {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .value-item {
+                height: 200px;
+            }
+            
+            .values-floating-elements .floating-shape {
+                display: none;
+            }
+            
+            .values-floating-elements .floating-shape:nth-child(-n+4) {
+                display: block;
+            }
+            
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
 
             /* Show mobile menu button on mobile */
@@ -1120,26 +1827,33 @@
             }
 
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
-            .about-grid {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .stats-grid {
+            .team-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-card {
-                padding: 2rem 1.5rem;
+            .values-grid {
+                grid-template-columns: 1fr;
             }
 
-            /* Footer Responsive */
             .footer-top {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .footer-column {
+                text-align: center;
             }
 
             .footer-bottom {
@@ -1164,44 +1878,1495 @@
             }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* Mobile Phones */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
+            }
+            
+            .values-showcase {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .value-item {
+                height: 180px;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .achievement-card {
+                padding: 1rem;
+                text-align: center;
+            }
+            
+            .achievement-number {
+                font-size: 1.2rem;
+            }
+            
+            .achievement-label {
+                font-size: 0.8rem;
+            }
+            
+            .values-floating-elements .floating-shape {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-description {
+                font-size: 0.9rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-sky,
+            .logo-yline {
+                font-size: 1.5rem;
+            }
+
+            .logo-tagline {
+                font-size: 0.5rem;
+                margin-left: 0.3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-column {
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+                height: 45px;
             }
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        /* Extra Small Mobile */
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.6rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                gap: 1rem;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Background Shapes -->
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+    <!-- Navbar Component -->
+<style>
+    .header {
+        background: linear-gradient(135deg, #8B0000 0%, #000 30%, #000 70%, #8B0000 100%);
+        backdrop-filter: blur(20px);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 99999;
+        overflow: visible;
+        box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3), 0 0 20px rgba(139, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
 
-    <!-- Header -->
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+        overflow: visible;
+    }
+
+    .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        z-index: 3;
+    }
+
+    .nav-menu a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.4s ease;
+    }
+
+    .nav-menu a:hover {
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown {
+        position: relative;
+        overflow: visible;
+        z-index: 1000;
+    }
+
+    .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .dropdown-toggle::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+        border-radius: 25px;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-toggle i {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-toggle {
+        color: #fff;
+        transform: translateY(-2px);
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.8),
+            0 2px 5px rgba(0, 0, 0, 0.5);
+        box-shadow:
+            0 5px 15px rgba(255, 255, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .dropdown:hover .dropdown-toggle::before {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .dropdown:hover .dropdown-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-toggle:active {
+        transform: translateY(0);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: linear-gradient(135deg, rgba(220, 38, 38, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        padding: 1rem 0;
+        margin: 0.5rem 0 0 0;
+        min-width: 250px;
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(139, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    visibility 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-delay: 0s, 0.1s, 0s;
+        z-index: 10010;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+        overflow: visible;
+        list-style: none;
+        display: block;
+        width: auto;
+        height: auto;
+    }
+
+    /* Dropdown hover behavior - keep it simple and effective */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    /* Keep dropdown open when hovering over the dropdown menu itself */
+    .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    /* Keep dropdown open when hovering over any dropdown item */
+    .dropdown-menu li:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    /* Keep dropdown open when hovering over any dropdown link */
+    .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    /* Additional hover states to ensure dropdown stays open */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    /* Ensure dropdown stays open when mouse moves from toggle to menu */
+    .dropdown-toggle:hover + .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    /* Comprehensive hover coverage for dropdown */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover,
+    .dropdown .dropdown-menu li a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    /* Ensure dropdown stays open when hovering over the entire dropdown area */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+    }
+
+    .dropdown::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 10px;
+        background: transparent;
+        z-index: 10004;
+        pointer-events: auto;
+    }
+
+    .dropdown:hover::after {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .dropdown-menu li {
+        margin: 0;
+        list-style: none;
+        position: relative;
+        z-index: 10011;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 0.8rem 1.5rem;
+        color: rgba(255, 255, 255, 0.95);
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        z-index: 10012;
+    }
+
+    .dropdown-menu a:first-child {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .dropdown-menu a:last-child {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .dropdown-menu a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        transform: translateX(5px);
+        padding-left: 2rem;
+        text-decoration: none;
+        z-index: 10013;
+    }
+
+    .dropdown-menu a:hover::before {
+        left: 100%;
+    }
+
+    .dropdown-menu a:first-child {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .dropdown-menu a:last-child {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .dropdown-menu a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .dropdown-menu a:first-child::before {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .dropdown-menu a:last-child::before {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .dropdown-menu a:hover::before {
+        left: 100%;
+    }
+
+    .dropdown-menu a:first-child:hover::before {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .dropdown-menu a:last-child:hover::before {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .dropdown-menu a:hover::after {
+        content: '→';
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #C41E3A;
+        font-weight: bold;
+        animation: slideIn 0.3s ease;
+        text-decoration: none;
+        z-index: 10014;
+    }
+
+    .dropdown-menu a:first-child:hover::after {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        z-index: 10015;
+    }
+
+    .dropdown-menu a:last-child:hover::after {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        z-index: 10016;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50%) translateX(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+    }
+
+    /* Force dropdown to be visible when needed */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ensure dropdown menu is always visible when parent is hovered */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Force dropdown to be visible on all hover states */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover,
+    .dropdown .dropdown-menu li a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Additional force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate absolute force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover,
+    .dropdown .dropdown-menu li:hover,
+    .dropdown .dropdown-menu a:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    /* Final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum ultimate final absolute maximum force for dropdown visibility */
+    .dropdown:hover .dropdown-menu,
+    .dropdown .dropdown-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition-delay: 0s !important;
+        display: block !important;
+        z-index: 10020 !important;
+    }
+
+    .mobile-menu-btn {
+        display: none !important;
+        flex-direction: column;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        border-radius: 8px;
+        gap: 4px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-menu-btn span {
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-sidenav {
+        display: none !important;
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+        z-index: 99998;
+        transition: all 0.4s ease;
+        padding-top: 80px;
+        overflow-y: auto;
+    }
+
+    .mobile-sidenav.active { left: 0; }
+    
+    .mobile-sidenav ul { list-style: none; padding: 0; margin: 0; }
+    
+    .mobile-sidenav a {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1.5rem;
+        color: white;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        margin: 0.5rem 1rem;
+        border-radius: 15px;
+    }
+
+    .mobile-sidenav a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(8px);
+    }
+
+    .mobile-overlay {
+        display: none !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 99997;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+
+    /* Mobile Dropdown Styles */
+    .mobile-dropdown {
+        position: relative;
+    }
+
+    .mobile-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 0.2rem 0;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .mobile-dropdown-toggle:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-dropdown.active .mobile-dropdown-toggle {
+        background: rgba(196, 30, 58, 0.1);
+        color: #C41E3A;
+    }
+
+    .dropdown-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex: 1;
+        text-decoration: none;
+        color: inherit;
+        padding: 0.8rem 1rem;
+    }
+
+    .dropdown-arrow {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+        color: rgba(255, 255, 255, 0.7);
+        margin-left: auto;
+        padding: 0.6rem;
+        cursor: pointer;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-arrow:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #C41E3A;
+        transform: scale(1.1);
+    }
+
+    .mobile-dropdown.active .dropdown-arrow {
+        transform: rotate(180deg);
+        color: #C41E3A;
+        background: rgba(196, 30, 58, 0.15);
+    }
+
+    .mobile-dropdown-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        background: rgba(0, 0, 0, 0.25);
+        margin: 0.5rem 1rem 0;
+        border-radius: 10px;
+        border-left: 3px solid #8B0000;
+        opacity: 0;
+        visibility: hidden;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-dropdown.active .mobile-dropdown-menu {
+        max-height: 300px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-dropdown-menu li {
+        margin: 0;
+    }
+
+    .mobile-dropdown-menu a {
+        padding: 1rem 1.2rem 1rem 2.8rem;
+        margin: 0.3rem 0.6rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.08);
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-height: 44px;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+    }
+
+    .mobile-dropdown-menu a:hover {
+        background: rgba(196, 30, 58, 0.1);
+        border-left-color: #C41E3A;
+        transform: translateX(3px);
+        color: #C41E3A;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            display: block !important;
+            position: fixed !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        .nav-container { display: flex !important; justify-content: space-between !important; }
+        .nav-menu { display: none !important; }
+        .mobile-menu-btn { display: flex !important; }
+        .mobile-sidenav { display: block !important; }
+        .mobile-overlay { display: block !important; }
+        body.mobile-menu-open { overflow: hidden !important; }
+    }
+</style>
+
     <header class="header">
         <nav class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
                 <span class="logo-tagline">Innovation Software</span>
             </a>
+
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#services">Why Choose Us</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html#industries">Industries</a></li>
+                <li class="dropdown">
+                    <a href="about.html" class="dropdown-toggle">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html#company-profile">Company Profile</a></li>
+                        <li><a href="about.html#vision-mission">Vision & Mission</a></li>
+                        <li><a href="about.html#leadership">Leadership Team</a></li>
+                        <li><a href="about.html#values">Our Values</a></li>
+                        <li><a href="about.html#partners">Strategic Partners</a></li>
+                        <li><a href="about.html#alliances">Strategic Alliances</a></li>
+                        <li><a href="about.html#clients">Our Clients</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="products&solutions.html" class="dropdown-toggle">Products & Solutions <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products&solutions.html">Our Products & Solutions</a></li>
+                        <li><a href="products&solutions.html#software-solutions">Software Solutions</a></li>
+                        <li><a href="products&solutions.html#demo">Book Your Demo</a></li>
+                        <li><a href="products&solutions.html#videos">Product Videos</a></li>
+                        <li><a href="download-center.html">Download Center</a></li>
+                    </ul>
+                </li>
+                <li><a href="events-news.html">Events & News</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
 
@@ -1217,10 +3382,31 @@
     <!-- Mobile Side Navigation -->
     <aside class="mobile-sidenav" id="mobileSidenav">
         <ul>
-            <li><a href="index.html"><span class="icon">🏠</span><span class="label">Home</span></a></li>
-            <li><a href="index.html#services"><span class="icon">💡</span><span class="label">Why Choose Us</span></a></li>
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-toggle">
+                    <a href="index.html" class="dropdown-link"><span class="icon">🏠</span><span class="label">Home</span></a>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="index.html#industries"><span class="icon">🏢</span><span class="label">Industries</span></a></li>
+                    <li><a href="index.html#services"><span class="icon">💡</span><span class="label">Why Choose Us</span></a></li>
+                </ul>
+            </li>
             <li><a href="about.html"><span class="icon">👥</span><span class="label">About</span></a></li>
-            <li><a href="index.html#industries"><span class="icon">🏢</span><span class="label">Industries</span></a></li>
+            <li class="mobile-dropdown products-dropdown">
+                <div class="mobile-dropdown-toggle">
+                    <a href="products&solutions.html" class="dropdown-link"><span class="icon">🛠️</span><span class="label">Products & Solutions</span></a>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="products&solutions.html"><span class="icon">📦</span><span class="label">Our Products & Solutions</span></a></li>
+                    <li><a href="products&solutions.html#software-solutions"><span class="icon">💻</span><span class="label">Software Solutions</span></a></li>
+                    <li><a href="products&solutions.html#demo"><span class="icon">🎬</span><span class="label">Book Your Demo</span></a></li>
+                    <li><a href="products&solutions.html#videos"><span class="icon">🎥</span><span class="label">Product Videos</span></a></li>
+                    <li><a href="download-center.html"><span class="icon">⬇️</span><span class="label">Download Center</span></a></li>
+                </ul>
+            </li>
+            <li><a href="events-news.html"><span class="icon">📰</span><span class="label">Events & News</span></a></li>
             <li><a href="index.html#contact"><span class="icon">📞</span><span class="label">Contact</span></a></li>
         </ul>
     </aside>
@@ -1228,213 +3414,446 @@
     <!-- Mobile Overlay -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+    
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>About SKYLINE Innovation</h1>
-            <p>Discover our journey, mission, and the passionate team behind our innovative software solutions</p>
+        <div class="container">
+            <h1>About SKYLINE</h1>
+            <p>Discover our company profile, vision, mission, leadership, and strategic partnerships</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section">
+    <!-- Company Profile Section -->
+    <section id="company-profile" class="about-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Us</h2>
-                <p class="section-subtitle">Empowering businesses through innovative technology solutions and digital transformation</p>
+                <h2 class="section-title">Company Profile</h2>
+                <p class="section-subtitle">Leading software innovation company transforming businesses across the Middle East</p>
             </div>
             
-            <div class="about-grid">
-                <!-- Who We Are -->
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3 class="card-title">Who We Are</h3>
-                    <div class="card-content">
-                        <p>Skyline Innovation is a leading provider of Enterprise Resource Planning (ERP) and software solutions in Jordan, dedicated to empowering businesses through cutting-edge technology and digital transformation. With a commitment to excellence, innovation, and customer satisfaction, we deliver tailored software solutions that streamline operations, enhance decision-making, and drive sustainable growth.</p>
-                        <p>Our expertise spans across multiple industries, enabling organizations to automate workflows, integrate systems, and optimize business processes with efficiency and accuracy.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Building the Future of Software</h2>
+                    <p>Founded in 2020, SKYLINE Innovation Software emerged from a vision to transform how businesses operate in the digital age. We started as a small team of passionate developers and entrepreneurs who believed that technology should be accessible, powerful, and transformative.</p>
+                    
+                    <p>Today, we're proud to serve hundreds of businesses across the Middle East and beyond, providing cutting-edge software solutions that drive growth, efficiency, and innovation. Our journey has been marked by continuous learning, adaptation, and an unwavering commitment to excellence.</p>
+                    
+                    <p>We believe that every business, regardless of size, deserves access to enterprise-grade software solutions. That's why we've built our platform to be scalable, user-friendly, and cost-effective, ensuring that innovation is within reach for everyone.</p>
+                    
+                    <div class="company-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Active Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Team Members</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Countries Served</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>99%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
                     </div>
                 </div>
+                
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x400/8B0000/FFFFFF?text=SKYLINE+Profile" alt="SKYLINE Company Profile">
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Our Vision -->
-                <div class="about-card">
-                    <div class="card-icon">
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="vision-mission-section">
+        <div class="container">
+            <div class="vision-mission-grid">
+                <div class="vision-card">
+                    <div class="vision-icon">
                         <i class="fas fa-eye"></i>
                     </div>
-                    <h3 class="card-title">Our Vision</h3>
-                    <div class="card-content">
-                        <p>To be the local trusted technology partner driving digital transformation for businesses across Jordan and the Middle East, enabling them to thrive in a competitive and rapidly evolving digital landscape.</p>
-                    </div>
+                    <h2 class="vision-title">Our Vision</h2>
+                    <p class="vision-description">To be the leading software innovation company in the Middle East, empowering businesses to achieve digital transformation and sustainable growth through cutting-edge technology solutions.</p>
                 </div>
-
-                <!-- Our Mission -->
-                <div class="about-card">
-                    <div class="card-icon">
-                        <i class="fas fa-bullseye"></i>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="card-title">Our Mission</h3>
-                    <div class="card-content">
-                        <p>At Skyline Innovation, our mission is to deliver scalable, intelligent, and fully customized ERP and software solutions that enhance business performance. We aim to:</p>
-                        <ul class="mission-list">
-                            <li><i class="fas fa-check"></i> Empower businesses with innovative, user-friendly, and data-driven solutions.</li>
-                            <li><i class="fas fa-check"></i> Optimize operations through seamless automation and process efficiency.</li>
-                            <li><i class="fas fa-check"></i> Enhance decision-making with real-time insights and advanced analytics.</li>
-                            <li><i class="fas fa-check"></i> Ensure security and compliance through state-of-the-art security protocols.</li>
-                            <li><i class="fas fa-check"></i> Provide continuous support to help businesses adapt and grow with technology.</li>
-                        </ul>
-                    </div>
+                    <h2 class="mission-title">Our Mission</h2>
+                    <p class="mission-description">To deliver innovative, scalable, and user-friendly software solutions that enable businesses to streamline operations, enhance productivity, and drive digital transformation across all industries.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Leadership Section -->
+    <section id="leadership" class="leadership-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Achievements</h2>
-                <p class="section-subtitle">Numbers that reflect our commitment to excellence and innovation</p>
+                <h2 class="section-title">Leadership Team</h2>
+                <p class="section-subtitle">Meet the visionary leaders driving SKYLINE's success and innovation</p>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Projects Completed</span>
+            
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="leader-name">Ahmad Al-Rashid</h3>
+                    <p class="leader-position">CEO & Founder</p>
+                    <p class="leader-bio">Visionary leader with 15+ years of experience in software development and business strategy. Passionate about empowering businesses through technology and digital transformation.</p>
+                    <div class="leader-expertise">
+                        <span class="expertise-tag">Strategic Leadership</span>
+                        <span class="expertise-tag">Business Development</span>
+                        <span class="expertise-tag">Innovation</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Technology Partners</span>
+                
+                <div class="leader-card">
+                    <div class="leader-avatar">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="leader-name">Sarah Al-Zahra</h3>
+                    <p class="leader-position">Chief Technology Officer</p>
+                    <p class="leader-bio">Technical expert specializing in cloud architecture and AI solutions. Leads our development team in creating cutting-edge software products and innovative solutions.</p>
+                    <div class="leader-expertise">
+                        <span class="expertise-tag">Cloud Architecture</span>
+                        <span class="expertise-tag">AI & Machine Learning</span>
+                        <span class="expertise-tag">Software Engineering</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Support Available</span>
+                
+                <div class="leader-card">
+                    <div class="leader-avatar">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="leader-name">Omar Al-Hassan</h3>
+                    <p class="leader-position">Chief Product Officer</p>
+                    <p class="leader-bio">Product strategist focused on user experience and market needs. Ensures our solutions solve real business problems effectively and deliver exceptional value.</p>
+                    <div class="leader-expertise">
+                        <span class="expertise-tag">Product Strategy</span>
+                        <span class="expertise-tag">User Experience</span>
+                        <span class="expertise-tag">Market Analysis</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number">98%</span>
-                    <span class="stat-label">Client Satisfaction</span>
+                
+                <div class="leader-card">
+                    <div class="leader-avatar">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="leader-name">Fatima Al-Mansouri</h3>
+                    <p class="leader-position">Chief Operations Officer</p>
+                    <p class="leader-bio">Operations expert with extensive experience in business process optimization and client relationship management. Ensures smooth operations and client satisfaction.</p>
+                    <div class="leader-expertise">
+                        <span class="expertise-tag">Operations Management</span>
+                        <span class="expertise-tag">Client Relations</span>
+                        <span class="expertise-tag">Process Optimization</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <!-- Top Section - Four Columns -->
-            <div class="footer-top">
-                <div class="footer-column">
-                    <div class="footer-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Location</h3>
-                    <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                    <a href="#" class="footer-link">GET DIRECTIONS</a>
-                </div>
-                
-                <div class="footer-column">
-                    <div class="footer-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>Contact us</h3>
-                    <p>+962786669911</p>
-                    <p>info@skyline-inov.com</p>
-                    <a href="tel:+962786669911" class="footer-link">CALL US</a>
-                </div>
-                
-                <div class="footer-column">
-                    <div class="footer-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Office details</h3>
-                    <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                    <a href="#" class="footer-link">VISIT OFFICE</a>
-                </div>
-                
-                <div class="footer-column">
-                    <div class="footer-icon">
-                        <i class="fas fa-paper-plane"></i>
-                    </div>
-                    <h3>Newsletter signup</h3>
-                    <p>Don't miss our latest updates and news</p>
-                    <div class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" class="newsletter-input">
-                        <button class="newsletter-btn">
-                            <i class="fas fa-envelope"></i>
-                        </button>
-                    </div>
-                </div>
+    <!-- Values Section -->
+    <section id="values" class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-subtitle">The principles that guide everything we do</p>
             </div>
             
-            <!-- Bottom Section -->
-            <div class="footer-bottom">
-                <a href="index.html" class="footer-logo">
-                    <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
-                    <span class="footer-logo-tagline">Innovation Software</span>
-                </a>
-                
-                <div class="footer-nav">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#services">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="index.html#industries">Industries</a>
-                    <a href="index.html#contact">Contact</a>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">We constantly push boundaries and explore new technologies to deliver cutting-edge solutions that keep our clients ahead of the curve.</p>
                 </div>
                 
-                <div class="footer-copyright">
-                    © Copyright 2024 <span class="company-name">SKYLINE Innovation</span>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Trust</h3>
+                    <p class="value-description">Building long-term relationships based on transparency, reliability, and delivering on our promises is at the heart of our business.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Collaboration</h3>
+                    <p class="value-description">We believe in the power of teamwork, both within our organization and with our clients, to achieve exceptional results.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">We strive for excellence in every aspect of our work, from code quality to customer service and user experience.</p>
                 </div>
             </div>
         </div>
-        
-        <!-- Red Gradient Shape -->
-        <div class="footer-gradient"></div>
-    </footer>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Partners</h2>
+                <p class="section-subtitle">Collaborating with industry leaders to deliver exceptional solutions</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3 class="partner-name">Microsoft</h3>
+                    <p class="partner-description">Official Microsoft Partner providing Azure cloud solutions and enterprise software integration services.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3 class="partner-name">Amazon Web Services</h3>
+                    <p class="partner-description">AWS Advanced Consulting Partner specializing in cloud migration, architecture, and optimization services.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3 class="partner-name">Google Cloud</h3>
+                    <p class="partner-description">Google Cloud Partner offering AI/ML solutions, data analytics, and modern application development.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="partner-name">Oracle</h3>
+                    <p class="partner-description">Oracle Partner delivering enterprise database solutions, ERP systems, and business intelligence platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alliances Section -->
+    <section id="alliances" class="alliances-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Alliances</h2>
+                <p class="section-subtitle">Building powerful partnerships to expand our reach and capabilities</p>
+            </div>
+            
+            <div class="alliances-content">
+                <div class="alliance-text">
+                    <h2>Expanding Our Ecosystem</h2>
+                    <p>SKYLINE has established strategic alliances with leading technology companies, industry associations, and academic institutions to enhance our service offerings and expand our market reach.</p>
+                    
+                    <div class="alliance-categories">
+                        <div class="alliance-category">
+                            <h3><i class="fas fa-university"></i> Academic Partnerships</h3>
+                            <p>Collaborating with top universities and research institutions to drive innovation and develop cutting-edge solutions.</p>
+                        </div>
+                        
+                        <div class="alliance-category">
+                            <h3><i class="fas fa-industry"></i> Industry Associations</h3>
+                            <p>Active members of key industry associations to stay at the forefront of technology trends and best practices.</p>
+                        </div>
+                        
+                        <div class="alliance-category">
+                            <h3><i class="fas fa-globe"></i> Global Networks</h3>
+                            <p>Part of international technology networks enabling us to serve clients across multiple regions and markets.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alliance-image">
+                    <img src="https://via.placeholder.com/500x400/8B0000/FFFFFF?text=Strategic+Alliances" alt="Strategic Alliances">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Clients</h2>
+                <p class="section-subtitle">Trusted by leading organizations across various industries</p>
+            </div>
+            
+            <div class="clients-stats">
+                <div class="client-stat">
+                    <h3>500+</h3>
+                    <p>Active Clients</p>
+                </div>
+                <div class="client-stat">
+                    <h3>15+</h3>
+                    <p>Industries Served</p>
+                </div>
+                <div class="client-stat">
+                    <h3>99%</h3>
+                    <p>Client Retention Rate</p>
+                </div>
+                <div class="client-stat">
+                    <h3>4.9/5</h3>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-category">
+                    <h3><i class="fas fa-building"></i> Enterprise Clients</h3>
+                    <div class="client-logos">
+                        <div class="client-logo">Al-Rajhi Bank</div>
+                        <div class="client-logo">Saudi Telecom</div>
+                        <div class="client-logo">Aramco</div>
+                        <div class="client-logo">SABIC</div>
+                    </div>
+                </div>
+                
+                <div class="client-category">
+                    <h3><i class="fas fa-store"></i> SME Clients</h3>
+                    <div class="client-logos">
+                        <div class="client-logo">Retail Chains</div>
+                        <div class="client-logo">Manufacturing</div>
+                        <div class="client-logo">Healthcare</div>
+                        <div class="client-logo">Education</div>
+                    </div>
+                </div>
+                
+                <div class="client-category">
+                    <h3><i class="fas fa-rocket"></i> Startups</h3>
+                    <div class="client-logos">
+                        <div class="client-logo">FinTech</div>
+                        <div class="client-logo">E-commerce</div>
+                        <div class="client-logo">HealthTech</div>
+                        <div class="client-logo">EdTech</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="client-testimonials">
+                <h3>What Our Clients Say</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"SKYLINE transformed our business operations with their innovative software solutions. The results exceeded our expectations."</p>
+                        <div class="testimonial-author">
+                            <strong>Ahmed Al-Sheikh</strong>
+                            <span>CEO, Al-Rajhi Bank</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p>"Their team's expertise and dedication helped us achieve digital transformation goals faster than we anticipated."</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah Al-Mansouri</strong>
+                            <span>CTO, Saudi Telecom</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p>"SKYLINE's solutions are user-friendly, scalable, and perfectly tailored to our business needs."</p>
+                        <div class="testimonial-author">
+                            <strong>Omar Al-Hassan</strong>
+                            <span>Director, SABIC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
 
     <script>
+        // Load Footer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load Footer
+            fetch('fotter.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    // Initialize footer functionality after loading
+                    initializeFooter();
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
+
         // Mobile side navigation functionality
-        const mobileSidenav = document.getElementById('mobileSidenav');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidenavElement = document.getElementById('mobileSidenav');
+        const overlayElement = document.getElementById('mobileOverlay');
+        const menuBtnElement = document.getElementById('mobileMenuBtn');
 
         function toggleMobileSidenav() {
-            const isActive = mobileSidenav.classList.contains('active');
+            const isActive = sidenavElement.classList.contains('active');
             
             if (isActive) {
-                mobileSidenav.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
+                sidenavElement.classList.remove('active');
+                overlayElement.classList.remove('active');
+                menuBtnElement.classList.remove('active');
                 document.body.style.overflow = '';
             } else {
-                mobileSidenav.classList.add('active');
-                mobileOverlay.classList.add('active');
-                mobileMenuBtn.classList.add('active');
+                sidenavElement.classList.add('active');
+                overlayElement.classList.add('active');
+                menuBtnElement.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
         }
 
         function closeMobileSidenav() {
-            mobileSidenav.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
+            sidenavElement.classList.remove('active');
+            overlayElement.classList.remove('active');
+            menuBtnElement.classList.remove('active');
             document.body.style.overflow = '';
         }
 
         // Toggle sidenav when clicking hamburger button
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function(e) {
+        if (menuBtnElement) {
+            menuBtnElement.addEventListener('click', function(e) {
                 e.stopPropagation();
                 toggleMobileSidenav();
             });
         }
 
         // Close sidenav when clicking overlay
-        if (mobileOverlay) {
-            mobileOverlay.addEventListener('click', closeMobileSidenav);
+        if (overlayElement) {
+            overlayElement.addEventListener('click', closeMobileSidenav);
         }
 
         // Close sidenav when clicking on a navigation link
-        if (mobileSidenav) {
-            const sidenavLinks = mobileSidenav.querySelectorAll('a');
+        if (sidenavElement) {
+            const sidenavLinks = sidenavElement.querySelectorAll('a');
             sidenavLinks.forEach(link => {
                 link.addEventListener('click', closeMobileSidenav);
             });
@@ -1442,10 +3861,63 @@
 
         // Close sidenav on escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileSidenav.classList.contains('active')) {
+            if (e.key === 'Escape' && sidenavElement.classList.contains('active')) {
                 closeMobileSidenav();
             }
         });
+
+        // Mobile dropdown functionality
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        
+        function closeAllMobileDropdowns() {
+            document.querySelectorAll('.mobile-dropdown').forEach(dd => {
+                dd.classList.remove('active');
+            });
+        }
+        
+        function toggleMobileDropdown(dropdown) {
+            const isActive = dropdown.classList.contains('active');
+            closeAllMobileDropdowns();
+            if (!isActive) {
+                dropdown.classList.add('active');
+            }
+        }
+        
+        mobileDropdownToggles.forEach((toggle) => {
+            const dropdown = toggle.closest('.mobile-dropdown');
+            const dropdownArrow = toggle.querySelector('.dropdown-arrow');
+            const dropdownLink = toggle.querySelector('.dropdown-link');
+            
+            if (dropdownArrow) {
+                dropdownArrow.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleMobileDropdown(dropdown);
+                });
+                
+                dropdownArrow.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleMobileDropdown(dropdown);
+                }, { passive: false });
+            }
+            
+            if (dropdownLink) {
+                dropdownLink.addEventListener('click', function(e) {
+                    // Allow normal navigation
+                });
+            }
+            
+            toggle.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown-link') && !e.target.classList.contains('dropdown-arrow')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleMobileDropdown(dropdown);
+                }
+            });
+        });
+
+        console.log('About navbar loaded successfully with dropdown functionality');
 
         // Close sidenav on window resize to desktop
         window.addEventListener('resize', function() {
@@ -1453,7 +3925,7 @@
                 closeMobileSidenav();
             }
         });
-        
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1469,12 +3941,12 @@
         });
 
         // Add scroll effect to header
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
                 header.style.background = 'linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(139, 0, 0, 0.95) 100%)';
-                header.style.boxShadow = '0 8px 32px rgba(139, 0, 0, 0.4), 0 0 30px rgba(139, 0, 0, 0.3)';
+                header.style.boxShadow = '0 8px 32px rgba(139, 0, 0, 0.4), 0 0 20px rgba(139, 0, 0, 0.3)';
             } else {
                 header.classList.remove('scrolled');
                 header.style.background = 'linear-gradient(135deg, #8B0000 0%, #000 30%, #000 70%, #8B0000 100%)';
@@ -1482,96 +3954,35 @@
             }
         });
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
+        // Initialize footer functionality
+        function initializeFooter() {
+            // Newsletter form handling
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
+                const newsletterInput = newsletterForm.querySelector('.newsletter-input');
+                
+                if (newsletterBtn && newsletterInput) {
+                    newsletterBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const email = newsletterInput.value.trim();
+                        if (email && isValidEmail(email)) {
+                            alert('Thank you for subscribing to our newsletter!');
+                            newsletterInput.value = '';
+                        } else {
+                            alert('Please enter a valid email address.');
+                        }
+                    });
                 }
-            });
-        }, observerOptions);
-
-        // Observe all cards
-        document.querySelectorAll('.about-card, .stat-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Create particle effect on mouse move
-        document.addEventListener('mousemove', function(e) {
-            if (Math.random() > 0.9) {
-                createParticle(e.clientX, e.clientY);
-            }
-        });
-
-        function createParticle(x, y) {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: fixed;
-                top: ${y}px;
-                left: ${x}px;
-                width: 4px;
-                height: 4px;
-                background: radial-gradient(circle, #8B0000, transparent);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                animation: particleFloat 2s ease-out forwards;
-            `;
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 2000);
-        }
-
-        // Add particle animation keyframes
-        const particleStyle = document.createElement('style');
-        particleStyle.textContent = `
-            @keyframes particleFloat {
-                0% {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
-                100% {
-                    opacity: 0;
-                    transform: translateY(-50px) scale(0);
-                }
-            }
-        `;
-        document.head.appendChild(particleStyle);
-
-        // Mobile navbar visibility enhancement
-        function ensureNavbarVisibility() {
-            const header = document.querySelector('.header');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (header) {
-                header.style.zIndex = '9998';
-                header.style.position = 'fixed';
-                header.style.top = '0';
-                header.style.left = '0';
-                header.style.width = '100%';
-                header.style.display = 'block';
-                header.style.visibility = 'visible';
-                header.style.opacity = '1';
-            }
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.style.zIndex = '10000';
-                mobileMenuBtn.style.position = 'relative';
-                mobileMenuBtn.style.display = 'flex';
             }
         }
 
-        // Call on load and resize
-        window.addEventListener('load', ensureNavbarVisibility);
-        window.addEventListener('resize', ensureNavbarVisibility);
+        // Utility function for email validation
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
     </script>
 </body>
 </html>

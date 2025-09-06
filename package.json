@@ -1,0 +1,26 @@
+{
+  "name": "skylineweb",
+  "version": "1.0.0",
+  "description": "SKYLINE Innovation Software Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=5500 --host=localhost --open=index.html",
+    "dev": "live-server --port=5500 --host=localhost --open=index.html",
+    "build": "echo 'No build process needed for static HTML'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "website",
+    "html",
+    "css",
+    "javascript",
+    "skyline",
+    "software"
+  ],
+  "author": "SKYLINE Innovation Software",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
+
